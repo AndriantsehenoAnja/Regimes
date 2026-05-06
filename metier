@@ -22,5 +22,29 @@ poids = ecarsIMC * taille^2
 
 if poids < 0:type regime = perte et |poids| 
 
-** status 
+---- Augmenter son poids
+type regime = prise
+
+---- Reduction de poids
+type regime = perte
+
+
+*page Accueil:
+navbar:[voir les progammes ; Mon compte ]
+
+*progammes:
+-pour femme et pour homme
+liste type ||liste type
+regime     ||   regime 
+
+-regime 
+chois regime
+
+-compte 
+
+-confirmation
+
+
+
+
 
