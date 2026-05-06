@@ -1,0 +1,26 @@
+formule IMC = poids/taille^2
+
+interpretation:
+< 18.5        => Maigreur
+
+[18.5 - 24.9] => Normal
+
+[25 - 29.9]   => Surpoids
+
+>=30          => Obésité
+
+regime:
+- 1 regime avec un ou plusieur activte
+- duree
+- prix
+
+---- Atteindre son IMC ideal:
+** valeur
+ecarsIMC = IMCactuel - valeur
+
+poids = ecarsIMC * taille^2
+
+if poids < 0:type regime = perte et |poids| 
+
+** status 
+
