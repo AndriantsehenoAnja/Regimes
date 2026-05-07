@@ -27,7 +27,7 @@ class TransactionModel extends Model
 
     protected $validationMessages = [
         'user_id' => [
-            'required' => 'Utilisateur obligatoire'
+            'required' => 'Connection Obligatoire'
         ],
 
         'code_id' => [
