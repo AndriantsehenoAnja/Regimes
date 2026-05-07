@@ -143,5 +143,22 @@ class RegimeModel extends Model
         return $this->where('prix <=', $prixMax)
                     ->findAll();
     }
+
+    public function getRegimesIMCideal($user,$valeur){
+        $usersan = new App\Models\UserHealthModel();
+        $usersante = $usersan->where('user_id =',$user['id'])->find();
+
+        $ecarsIMC = $usersante['imc'] - $valeur;
+        $poids = $ecarsIMC*$usersante['taille'];
+        if ($poids<0){
+            return $this->where(['type_regime =perte'],['variation_poid_min <=',$poids*(-1),'<= variation_poid_max'])
+                        ->findAll();
+        }
+        else{
+            return $this->where(['type_regime =prise'],['variation_poid_min <=',$poids*(-1),'<= variation_poid_max'])
+                        ->findAll();
+        }
+    }
+
     
 }
