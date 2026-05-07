@@ -13,7 +13,6 @@
 
     <!-- ── Navbar ───────────────────────────────────────── -->
     <nav class="navbar">
-
         <!-- Logo -->
         <div class="navbar-left">
             <a href="<?= base_url('') ?>" class="navbar-brand">
