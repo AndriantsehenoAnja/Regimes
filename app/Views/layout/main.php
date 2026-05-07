@@ -47,7 +47,7 @@
                 Accueil
             </a>
 
-            <a href="<?= base_url('programme') ?>"
+            <a href="<?= base_url('') ?>"
                class="nav-item <?= (uri_string() == 'programme') ? 'active' : '' ?>">
 
                 <svg viewBox="0 0 24 24">
@@ -63,6 +63,7 @@
             </a>
 
         </div>
+        <!-- End Navigation -->
 
         <!-- User -->
         <div class="navbar-right">
