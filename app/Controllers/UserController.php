@@ -80,20 +80,22 @@ class UserController extends BaseController
             $userHealthModel->insert([
                 'user_id' => $userId,
                 'taille' => $taille,
-                'poids' => $poids
+                'poids' => $poids,
+                'imc' => $poids / (($taille) * ($taille))
             ]);
+            session()->set("user", $userModel->find($userId));
 
             session()->setFlashdata('success', 'Inscription réussie. Vous pouvez maintenant vous connecter.');
 
-            return redirect()->to('/login');
+            return redirect()->to('/confirmation');
         } else {
             session()->setFlashdata('error', 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
 
-            return redirect()->to('/confirmation');
+            return redirect()->to('/inscription1');
         }
 
     }
-    
+
     public function precedente()
     {
         return redirect()->to('/inscription1?previous=1');
