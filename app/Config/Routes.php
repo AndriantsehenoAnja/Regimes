@@ -61,3 +61,8 @@ $routes->post(
     '/acheter',
     'AchatRegimeController::acheter'
 );
+
+$routes->get(
+    '/profile',
+    'ProfileController::index'
+);

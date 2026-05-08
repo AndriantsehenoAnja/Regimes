@@ -123,7 +123,7 @@ class AchatRegimeController extends BaseController
 
             $session->set('user', $dbUser);
 
-            return redirect()->to('/suggerer')
+            return redirect()->to('/profile')
                 ->with(
                     'success',
                     'Régime acheté avec succès'
