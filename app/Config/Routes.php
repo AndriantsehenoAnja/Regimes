@@ -56,3 +56,8 @@ $routes->post(
     'activite/save',
     'ActiviteController::save'
 );
+
+$routes->post(
+    '/acheter',
+    'AchatRegimeController::acheter'
+);

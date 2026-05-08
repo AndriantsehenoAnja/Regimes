@@ -135,7 +135,8 @@ class RegimeModel extends Model
                     'regime_prix' => $row['regime_prix'],
                     'regime_variation' => $row['regime_variation'],
                     'type_regime' => $row['type_regime'],
-                    'activites' => []
+                    'activites' => [],
+                    'id' => $regime_id
                 ];
             }
             if ($row['activite_id']) {
@@ -180,7 +181,8 @@ class RegimeModel extends Model
                     'multiplicateur' => $multiplier,
                     'duree_totale' => $regime['regime_duree'] * $multiplier,
                     'prix_total' => $regime['regime_prix'] * $multiplier,
-                    'poids_estime_atteint' => $variation_finale * $multiplier
+                    'poids_estime_atteint' => $variation_finale * $multiplier,
+                    'id' => $regime['id']
                 ];
             }
         }
