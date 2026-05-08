@@ -52,8 +52,7 @@ CREATE TABLE regimes (
     description TEXT,
     prix DECIMAL(10,2),
     duree INT, -- en jours
-    variation_poid_min DECIMAL(5,2),
-    variation_poid_max DECIMAL(5,2),
+    variation DECIMAL(5,2),
     type_regime ENUM('perte','prise'),
     pourcentage_viande INT,
     pourcentage_poisson INT,
