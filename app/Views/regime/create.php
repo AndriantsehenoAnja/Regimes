@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Ajouter un Régime</title>
-</head>
-<body>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('title'); ?>Creer un regime<?php $this->endSection(); ?>
+<?php $this->section('content') ?>
+
     <h2>Créer un nouveau Régime</h2>
 
     <?php if (session()->getFlashdata('error')) : ?>
@@ -76,5 +73,4 @@
         <br>
         <button type="submit">Créer le régime</button>
     </form>
-</body>
-</html>
+<?php $this->endSection() ?>

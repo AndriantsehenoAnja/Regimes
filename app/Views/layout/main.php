@@ -96,6 +96,20 @@
 
                 Activite 
             </a>
+            <a href="<?= base_url('/regimes') ?>"
+               class="nav-item <?= (uri_string() == 'regimes') ? 'active' : '' ?>">
+
+                <svg viewBox="0 0 24 24">
+                    <line x1="8" y1="6" x2="21" y2="6"/>
+                    <line x1="8" y1="12" x2="21" y2="12"/>
+                    <line x1="8" y1="18" x2="21" y2="18"/>
+                    <line x1="3" y1="6" x2="3.01" y2="6"/>
+                    <line x1="3" y1="12" x2="3.01" y2="12"/>
+                    <line x1="3" y1="18" x2="3.01" y2="18"/>
+                </svg>
+
+                Nos regimes 
+            </a>
 
             <!-- Gold -->
             <a href="<?= base_url('gold/form') ?>"

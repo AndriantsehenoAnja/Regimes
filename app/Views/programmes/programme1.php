@@ -4,6 +4,12 @@
 
     <h2>Choisis ton programme</h2>
     <div class="container">
+        <?php foreach ($imc as $im): ?>
+            <div class="card">
+                <h3><?= esc($im['categorie']) ?></h3>
+                <p><?= esc($im['intervalle_min']) ?> - <?= esc($im['intervalle_max']) ?></p>
+            </div>
+        <?php endforeach; ?>
         <form action="<?= base_url('/suggerer') ?>" method="post">
             
             <!-- Sélection du genre -->

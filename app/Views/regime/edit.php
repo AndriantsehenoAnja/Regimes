@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('title'); ?>Modifier un régime<?php $this->endSection(); ?>
+<?php $this->section('content') ?>
+
     <h1>Modifier le Régime</h1>
     <?php if (session()->getFlashdata('error')) : ?>
         <div style="color: red;">
@@ -37,5 +33,4 @@
 
         <button type="submit">Mettre à jour</button>
     </form>
-</body>
-</html>
+<?php $this->endSection() ?>
