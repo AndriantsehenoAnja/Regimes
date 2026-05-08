@@ -1,110 +1,12 @@
-CRITICAL - 2026-05-08 20:50:15 --> ErrorException: Undefined variable $data
-[Method: GET, Route: programme1]
-in APPPATH/Views/programmes/programme1.php on line 7.
- 1 APPPATH/Views/programmes/programme1.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
- 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/programmes/programme1.php')
+CRITICAL - 2026-05-08 21:13:46 --> ErrorException: Undefined array key "nom"
+[Method: GET, Route: regimes/ajouterActivite/1]
+in APPPATH/Views/regime/ajoutActivite.php on line 7.
+ 1 APPPATH/Views/regime/ajoutActivite.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/regime/ajoutActivite.php')
  3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
- 5 APPPATH/Controllers/ObjectifController.php(19): view()
- 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ObjectifController->index()
- 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
- 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
- 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-CRITICAL - 2026-05-08 20:51:47 --> ErrorException: Undefined variable $data
-[Method: GET, Route: programme1]
-in APPPATH/Views/programmes/programme1.php on line 7.
- 1 APPPATH/Views/programmes/programme1.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
- 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/programmes/programme1.php')
- 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
- 5 APPPATH/Controllers/ObjectifController.php(19): view()
- 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ObjectifController->index()
- 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
- 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
- 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-CRITICAL - 2026-05-08 20:51:48 --> ErrorException: Undefined variable $data
-[Method: GET, Route: programme1]
-in APPPATH/Views/programmes/programme1.php on line 7.
- 1 APPPATH/Views/programmes/programme1.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
- 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/programmes/programme1.php')
- 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
- 5 APPPATH/Controllers/ObjectifController.php(19): view()
- 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ObjectifController->index()
- 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
- 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
- 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-CRITICAL - 2026-05-08 20:51:48 --> ErrorException: Undefined variable $data
-[Method: GET, Route: programme1]
-in APPPATH/Views/programmes/programme1.php on line 7.
- 1 APPPATH/Views/programmes/programme1.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
- 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/programmes/programme1.php')
- 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
- 5 APPPATH/Controllers/ObjectifController.php(19): view()
- 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ObjectifController->index()
- 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
- 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
- 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-CRITICAL - 2026-05-08 20:51:48 --> ErrorException: Undefined variable $data
-[Method: GET, Route: programme1]
-in APPPATH/Views/programmes/programme1.php on line 7.
- 1 APPPATH/Views/programmes/programme1.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
- 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/programmes/programme1.php')
- 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
- 5 APPPATH/Controllers/ObjectifController.php(19): view()
- 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ObjectifController->index()
- 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
- 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
- 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-CRITICAL - 2026-05-08 20:51:49 --> ErrorException: Undefined variable $data
-[Method: GET, Route: programme1]
-in APPPATH/Views/programmes/programme1.php on line 7.
- 1 APPPATH/Views/programmes/programme1.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
- 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/programmes/programme1.php')
- 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
- 5 APPPATH/Controllers/ObjectifController.php(19): view()
- 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ObjectifController->index()
- 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
- 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
- 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-CRITICAL - 2026-05-08 20:51:49 --> ErrorException: Undefined variable $data
-[Method: GET, Route: programme1]
-in APPPATH/Views/programmes/programme1.php on line 7.
- 1 APPPATH/Views/programmes/programme1.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
- 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/programmes/programme1.php')
- 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
- 5 APPPATH/Controllers/ObjectifController.php(19): view()
- 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ObjectifController->index()
- 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
- 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
- 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
-11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
-CRITICAL - 2026-05-08 20:51:49 --> ErrorException: Undefined variable $data
-[Method: GET, Route: programme1]
-in APPPATH/Views/programmes/programme1.php on line 7.
- 1 APPPATH/Views/programmes/programme1.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
- 2 SYSTEMPATH/View/View.php(240): include('/home/bryan/Documents/GitHub/Regimes/app/Views/programmes/programme1.php')
- 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
- 5 APPPATH/Controllers/ObjectifController.php(19): view()
- 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ObjectifController->index()
+ 5 APPPATH/Controllers/RegimeController.php(260): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RegimeController->ajouterActivite()
  7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
  8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
  9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
