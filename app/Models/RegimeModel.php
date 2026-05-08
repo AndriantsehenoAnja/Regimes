@@ -119,42 +119,67 @@ class RegimeModel extends Model
             FROM regimes r
             LEFT JOIN regime_activite ra ON r.id = ra.regime_id
             LEFT JOIN activites a ON ra.activite_id = a.id
-            WHERE r.type_regime = ? OR (ra.type_activite = ? AND ra.type_activite IS NOT NULL)
-        ";
+        "; // On enlève le WHERE pour traiter tout et combiner
 
-        $query = $db->query($sql, [$type_objectif, $type_objectif]);
+        $query = $db->query($sql);
         $results = $query->getResultArray();
+
+        // Grouper par régime
+        $regimes = [];
+        foreach ($results as $row) {
+            $regime_id = $row['regime_id'];
+            if (!isset($regimes[$regime_id])) {
+                $regimes[$regime_id] = [
+                    'regime_nom' => $row['regime_nom'],
+                    'regime_duree' => $row['regime_duree'],
+                    'regime_prix' => $row['regime_prix'],
+                    'regime_variation' => $row['regime_variation'],
+                    'type_regime' => $row['type_regime'],
+                    'activites' => []
+                ];
+            }
+            if ($row['activite_id']) {
+                $regimes[$regime_id]['activites'][] = [
+                    'activite_nom' => $row['activite_nom'],
+                    'activite_variation' => $row['activite_variation'],
+                    'type_activite' => $row['type_activite']
+                ];
+            }
+        }
 
         $suggestions = [];
 
-        foreach ($results as $row) {
+        foreach ($regimes as $regime) {
             $variation_finale = 0;
 
-            // Calcul de la variation finale selon le type de régime et d'activité
-            if ($row['type_regime'] == $type_objectif) {
-                $variation_finale += $row['regime_variation'];
+            // Calcul de la variation finale du régime
+            if ($regime['type_regime'] == $type_objectif) {
+                $variation_finale += $regime['regime_variation'];
             } else {
-                $variation_finale -= $row['regime_variation'];
+                $variation_finale -= $regime['regime_variation'];
             }
 
-            if ($row['activite_variation'] != null) {
-                if ($row['type_activite'] == $type_objectif) {
-                    $variation_finale += $row['activite_variation'];
+            $activites_noms = [];
+            // Ajouter les variations de toutes les activités du régime
+            foreach ($regime['activites'] as $activite) {
+                if ($activite['type_activite'] == $type_objectif) {
+                    $variation_finale += $activite['activite_variation'];
                 } else {
-                    $variation_finale -= $row['activite_variation'];
+                    $variation_finale -= $activite['activite_variation'];
                 }
+                $activites_noms[] = $activite['activite_nom'];
             }
 
             if ($variation_finale > 0) {
                 $multiplier = ceil($poids_cible / $variation_finale);
 
                 $suggestions[] = [
-                    'regime' => $row['regime_nom'],
-                    'activite' => $row['activite_nom'] ?? 'Aucune',
+                    'regime' => $regime['regime_nom'],
+                    'activite' => !empty($activites_noms) ? implode(', ', $activites_noms) : 'Aucune',
                     'variation_finale_unitaire' => $variation_finale,
                     'multiplicateur' => $multiplier,
-                    'duree_totale' => $row['regime_duree'] * $multiplier,
-                    'prix_total' => $row['regime_prix'] * $multiplier,
+                    'duree_totale' => $regime['regime_duree'] * $multiplier,
+                    'prix_total' => $regime['regime_prix'] * $multiplier,
                     'poids_estime_atteint' => $variation_finale * $multiplier
                 ];
             }
@@ -193,8 +218,8 @@ class RegimeModel extends Model
 
     public function getRegimesIMCideal($user, $valeur)
     {
-        $usersan = new App\Models\UserHealthModel();
-        // Since find() might return multiple arrays or an entity, assuming get first element if needed, 
+        $usersan = new \App\Models\UserHealthModel();
+        // Since find() might return multiple arrays or an array of objects
         // or just first() depending on their structure. We keep their original lines.
         $usersante = $usersan->where('user_id =', $user['id'])->first(); 
         if (!$usersante) {
