@@ -12,16 +12,16 @@ if (($userData['genre_id'] ?? '') === '1') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirmation</title>
+    <title>Confirmations</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
 <div class="container">
 
-    <h2>Confirmation</h2>
+    <h2>Confirmations</h2>
 
-    <p><b>Nom :</b> <?= esc($userData['nom'] ?? '') ?></p>
+    <p><b>Nom(s) :</b> <?= esc($userData['nom'] ?? '') ?></p>
 
     <p><b>Email :</b> <?= esc($userData['email'] ?? '') ?></p>
 
@@ -29,7 +29,7 @@ if (($userData['genre_id'] ?? '') === '1') {
 
     <p><b>Genre :</b> <?= esc($genreLabel) ?></p>
 
-    <p><b>Taille :</b> <?= esc($userSante['taille'] ?? '') ?> m</p>
+    <p><b>Tailles :</b> <?= esc($userSante['taille'] ?? '') ?> m</p>
 
     <p><b>Poids :</b> <?= esc($userSante['poids'] ?? '') ?> kg</p>
 

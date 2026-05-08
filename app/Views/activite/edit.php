@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier Activité</title>
-</head>
-<body>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('title'); ?>Modifier Activite<?php $this->endSection(); ?>
+<?php $this->section('content') ?>
 
-    <h1>Modifier Activité</h1>
+
+    <h1>Modifier Activités</h1>
 
     <form action="<?= base_url('activite/update/' . $activite['id']) ?>" method="post">
         <div>
@@ -25,6 +21,4 @@
         <button type="submit">Mettre à jour</button>
     </form>
 
-</body>
-</html>
-        
+<?php $this->endSection() ?>
