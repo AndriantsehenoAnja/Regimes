@@ -1,0 +1,166 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programme 1</title>
+
+    <link rel="stylesheet" href="style/style_prog.css">
+
+    <style>
+
+        .tabs{
+            display:flex;
+            justify-content:center;
+            margin-bottom:30px;
+        }
+
+        .tab{
+            padding:15px 40px;
+            background:#d8c1df;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        .active{
+            background:#5a1b68;
+            color:white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Votre programme</h1>
+
+    <div class="tabs">
+
+        <div class="tab active" id="femmeTab"
+        onclick="changeGenre('femme')">
+
+            POUR LES FEMMES
+
+        </div>
+
+        <div class="tab" id="hommeTab"
+        onclick="changeGenre('homme')">
+
+            POUR LES HOMMES
+
+        </div>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h2>Réduire son poids</h2>
+
+            <p>
+                Programme pour perdre du poids rapidement
+            </p>
+
+            <button onclick="choisir('perte')">
+                CHOISIR
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Augmenter son poids</h2>
+
+            <p>
+                Programme pour prise de masse
+            </p>
+
+            <button onclick="choisir('prise')">
+                CHOISIR
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Atteindre son IMC idéal</h2>
+
+            <p>
+                Programme équilibre alimentaire
+            </p>
+
+            <button onclick="choisir('imc')">
+                CHOISIR
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let genre = "femme";
+
+function changeGenre(g){
+
+    genre = g;
+
+    document
+    .getElementById("femmeTab")
+    .classList.remove("active");
+
+    document
+    .getElementById("hommeTab")
+    .classList.remove("active");
+
+    if(g == "femme"){
+
+        document
+        .getElementById("femmeTab")
+        .classList.add("active");
+
+    }else{
+
+        document
+        .getElementById("hommeTab")
+        .classList.add("active");
+
+    }
+
+}
+
+function choisir(objectif){
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST","save.php",true);
+
+    xhr.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+    );
+
+    xhr.onload = function(){
+
+        window.location = "programme2.php";
+
+    }
+
+    xhr.send(
+        "genre="+genre+
+        "&objectif="+objectif
+    );
+
+}
+
+</script>
+
+</body>
+</html>
