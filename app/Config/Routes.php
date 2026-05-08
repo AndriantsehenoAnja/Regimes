@@ -47,16 +47,23 @@ $routes->post(
 );
 
 /* CRUD activite */
+
 $routes->get(
-    'activite/form',
+    '/activite',
+    'ActiviteController::index'
+);
+
+$routes->get(
+    '/activite/form',
     'ActiviteController::form'
 );
 
 $routes->post(
-    'activite/save',
+    '/activite/save',
     'ActiviteController::save'
 );
 
+/* Achat régime */
 $routes->post(
     '/acheter',
     'AchatRegimeController::acheter'
@@ -66,6 +73,7 @@ $routes->get(
     '/profile',
     'ProfileController::index'
 );
+
 // CRUD régimes
 $routes->get('regimes/create', 'RegimeController::create');
 $routes->post('regimes/store', 'RegimeController::store');
