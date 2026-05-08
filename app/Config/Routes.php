@@ -14,7 +14,7 @@ $routes->post('/save_user1', 'UserController::save_user1');
 $routes->post('/save_user2', 'UserController::save_user2');
 // confirmation
 $routes->get('/confirmation', 'UserController::confirmation');
-$routes->post('/insertConfirmation', 'UserController::insertConfirmation');
+$routes->get('/insertConfirmation', 'UserController::insertConfirmation');
 // login
 $routes->get('/login', 'UserController::login');
 $routes->post('/authenticate', 'UserController::authenticate');
