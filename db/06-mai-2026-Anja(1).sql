@@ -15,7 +15,7 @@ CREATE TABLE users (
     genre_id INT,
     is_gold BOOLEAN DEFAULT FALSE,
     solde DECIMAL(10,2) DEFAULT 0, -- tsy azo
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
 
@@ -52,8 +52,7 @@ CREATE TABLE regimes (
     description TEXT,
     prix DECIMAL(10,2),
     duree INT, -- en jours
-    variation_poid_min DECIMAL(5,2),
-    variation_poid_max DECIMAL(5,2),
+    variation DECIMAL(5,2),
     type_regime ENUM('perte','prise'),
     pourcentage_viande INT,
     pourcentage_poisson INT,
@@ -64,9 +63,9 @@ CREATE TABLE regimes (
 CREATE TABLE regime_genre(
     id INT AUTO_INCREMENT PRIMARY KEY,
     genre_id INT,
-    regime_id INT
-    FOREIGN KEY (genre_id) REFERENCES genres(id)
-    FOREIGN KEY (regime_id) REFERENCES regime(id)
+    regime_id INT,
+    FOREIGN KEY (genre_id) REFERENCES genres(id),
+    FOREIGN KEY (regime_id) REFERENCES regimes(id)
 );
 
 
@@ -83,6 +82,8 @@ CREATE TABLE regime_activite (
     id INT AUTO_INCREMENT PRIMARY KEY,
     regime_id INT,
     activite_id INT,
+    type_activite ENUM('perte','prise'),
+    variation DECIMAL(5,2),
     FOREIGN KEY (regime_id) REFERENCES regimes(id),
     FOREIGN KEY (activite_id) REFERENCES activites(id)
 );
