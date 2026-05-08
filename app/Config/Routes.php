@@ -66,3 +66,11 @@ $routes->get(
     '/profile',
     'ProfileController::index'
 );
+// CRUD régimes
+$routes->get('regimes/create', 'RegimeController::create');
+$routes->post('regimes/store', 'RegimeController::store');
+// Optionnel: routes index etc.
+$routes->get('regimes', 'RegimeController::index');
+$routes->get('regimes/edit/(:num)', 'RegimeController::edit/$1');
+$routes->post('regimes/update/(:num)', 'RegimeController::update/$1');
+$routes->get('regimes/delete/(:num)', 'RegimeController::delete/$1');
