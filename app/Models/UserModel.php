@@ -24,7 +24,7 @@ class UserModel extends Model
     ];
 
     // timestamps
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
 
     protected $createdField = 'created_at';
 
