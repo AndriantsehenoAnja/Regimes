@@ -1,0 +1,275 @@
+<?php
+session_start();
+
+include("db.php");
+
+$id = $_SESSION['regime_id'];
+
+$sql = "SELECT * FROM regimes WHERE id=$id";
+
+$result = $conn->query($sql);
+
+$regime = $result->fetch_assoc();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmation</title>
+
+    <link rel="stylesheet" href="style/style_prog.css">
+
+    <style>
+
+        .confirm-box{
+
+            width:700px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.1);
+
+        }
+
+        .section{
+
+            margin-bottom:30px;
+
+        }
+
+        .section h2{
+
+            color:#8e1163;
+            border-bottom:2px solid #eee;
+            padding-bottom:10px;
+
+        }
+
+        .info{
+
+            margin-top:10px;
+            font-size:18px;
+
+        }
+
+        .info span{
+
+            font-weight:bold;
+            color:#5a1b68;
+
+        }
+
+        .objectif{
+
+            display:inline-block;
+            padding:10px 20px;
+            border-radius:20px;
+            color:white;
+            margin-top:10px;
+
+        }
+
+        .perte{
+
+            background:#ff4d4d;
+
+        }
+
+        .prise{
+
+            background:#00c896;
+
+        }
+
+        .imc{
+
+            background:#4da6ff;
+
+        }
+
+        .btns{
+
+            display:flex;
+            justify-content:space-between;
+            margin-top:30px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Confirmation du programme</h1>
+
+    <div class="confirm-box">
+
+        <div class="section">
+
+            <h2>Informations utilisateur</h2>
+
+            <div class="info">
+
+                <span>Genre :</span>
+
+                <?= ucfirst($_SESSION['genre']) ?>
+
+            </div>
+
+            <div class="info">
+
+                <span>Objectif :</span>
+
+                <div class="objectif <?= $_SESSION['objectif'] ?>">
+
+                    <?php
+
+                    if($_SESSION['objectif'] == "perte"){
+
+                        echo "Réduire son poids";
+
+                    }elseif($_SESSION['objectif'] == "prise"){
+
+                        echo "Augmenter son poids";
+
+                    }else{
+
+                        echo "Atteindre son IMC idéal";
+
+                    }
+
+                    ?>
+
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <span>Poids cible :</span>
+
+                <?= $_SESSION['poidsObjectif'] ?> kg
+
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Régime sélectionné</h2>
+
+            <div class="info">
+
+                <span>Nom :</span>
+
+                <?= $regime['nom'] ?>
+
+            </div>
+
+            <div class="info">
+
+                <span>Description :</span>
+
+                <?= $regime['description'] ?>
+
+            </div>
+
+            <div class="info">
+
+                <span>Prix :</span>
+
+                <?= $regime['prix'] ?> Ar
+
+            </div>
+
+            <div class="info">
+
+                <span>Durée :</span>
+
+                <?= $regime['duree'] ?> jours
+
+            </div>
+
+            <div class="info">
+
+                <span>Variation :</span>
+
+                <?= $regime['variation'] ?> kg
+
+            </div>
+
+            <div class="info">
+
+                <span>Type :</span>
+
+                <?= $regime['type_regime'] ?>
+
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Composition alimentaire</h2>
+
+            <div class="info">
+
+                <span>Viande :</span>
+
+                <?= $regime['pourcentage_viande'] ?>%
+
+            </div>
+
+            <div class="info">
+
+                <span>Poisson :</span>
+
+                <?= $regime['pourcentage_poisson'] ?>%
+
+            </div>
+
+            <div class="info">
+
+                <span>Volaille :</span>
+
+                <?= $regime['pourcentage_volaille'] ?>%
+
+            </div>
+
+        </div>
+
+        <div class="btns">
+
+            <button onclick="window.location='programme2.php'">
+
+                Précédent
+
+            </button>
+
+            <button onclick="confirmRegime()">
+
+                Confirmer
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function confirmRegime(){
+
+    alert("Programme confirmé avec succès !");
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 70px;
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+/* LEFT */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* BRAND */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: black;
+}
+
+.brand-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* CENTER */
+.navbar-center {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* RIGHT */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* NAV ITEMS */
+.nav-item {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+    color: #555;
+
+    padding: 0 15px;
+
+    border-radius: 8px;
+
+    transition: 0.2s;
+
+    white-space: nowrap;
+}
+
+.nav-item:hover {
+    background: #f0f0f0;
+}
+
+.nav-item.active {
+    background: #111827;
+    color: white;
+}
+
+/* ICONS */
+.nav-item svg {
+    width: 18px;
+    height: 18px;
+
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* USER */
+.user-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: black;
+
+    height: 42px;
+}
+
+/* USER INFOS */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-info .name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-info .role {
+    font-size: 12px;
+    color: #c59d00;
+}
+
+/* AVATAR */
+.avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #111827;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+/* SOLDE */
+.solde {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    background: #f7f7f7;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+/* MAIN */
+.main-content {
+    padding: 20px;
+}
