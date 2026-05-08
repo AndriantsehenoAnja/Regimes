@@ -134,7 +134,7 @@
                 </div>
                 
                 <!-- User -->
-                <a href="#" class="user-row">
+                <a href="<?= base_url('/profile') ?>" class="user-row">
                     
                     <div class="avatar">
                         <?= strtoupper($user['nom'][0]) ?>
