@@ -238,6 +238,17 @@ INSERT INTO codes (
 ('CODE50',50000,TRUE),
 ('WELCOME',25000,FALSE);
 
+
+INSERT INTO codes (
+    code,
+    montant,
+    utilise
+) VALUES
+
+('TEST',100000,FALSE),
+('TEST2',50000,FALSE),
+('TEST3',25000,FALSE);
+
 -- =========================
 -- TRANSACTIONS
 -- =========================
