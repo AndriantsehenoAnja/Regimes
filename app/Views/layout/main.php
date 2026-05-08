@@ -57,7 +57,7 @@ if(isset($_SESSION['user'])){
             </a>
 
             <!-- Programmes -->
-            <a href="<?= base_url('programme') ?>"
+            <a href="<?= base_url('/programme1') ?>"
                class="nav-item <?= (uri_string() == 'programme') ? 'active' : '' ?>">
 
                 <svg viewBox="0 0 24 24">

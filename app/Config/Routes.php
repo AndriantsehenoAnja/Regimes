@@ -19,6 +19,10 @@ $routes->get('/insertConfirmation', 'UserController::insertConfirmation');
 $routes->get('/login', 'UserController::login');
 $routes->post('/authenticate', 'UserController::authenticate');
 $routes->get('/logout', 'UserController::logout');
+// programme régime1
+$routes->get('/programme1', 'ObjectifController::index');
+$routes->post('/suggerer', 'RegimeController::suggerer_regime');
+
 
 /* Code */
 $routes->get(
