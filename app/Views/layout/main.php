@@ -80,6 +80,7 @@
         <!-- End Navigation -->
 
         <!-- User -->
+        <a href="<?= base_url('gold/form') ?>">Option Gold</a>
         <div class="navbar-right">
 
             <a href="<?= base_url('login') ?>" class="user-row">
@@ -92,6 +93,7 @@
                     <div class="name">Test</div>
                     <div class="role">Admin</div>
                 </div>
+
 
             </a>
 
