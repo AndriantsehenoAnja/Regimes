@@ -17,7 +17,7 @@
         <!-- Logo -->
         <div class="navbar-left">
 
-            <a href="<?= base_url('') ?>" class="navbar-brand">
+            <a href="<?= base_url('/') ?>" class="navbar-brand">
 
                 <div class="logo-icon">
                     <svg viewBox="0 0 24 24" width="18" height="18">
@@ -52,7 +52,7 @@
 
             <!-- Programmes -->
             <a href="<?= base_url('/programme1') ?>"
-               class="nav-item <?= (uri_string() == 'programme') ? 'active' : '' ?>">
+               class="nav-item <?= (uri_string() == 'programme1') ? 'active' : '' ?>">
 
                 <svg viewBox="0 0 24 24">
                     <line x1="8" y1="6" x2="21" y2="6"/>
