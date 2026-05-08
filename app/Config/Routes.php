@@ -63,6 +63,21 @@ $routes->post(
     'ActiviteController::save'
 );
 
+$routes->get(
+    '/activite/edit/(:num)',
+    'ActiviteController::edit/$1'
+);
+
+$routes->post(
+    '/activite/update/(:num)',
+    'ActiviteController::update/$1'
+);
+
+$routes->get(
+    '/activite/delete/(:num)',
+    'ActiviteController::delete/$1'
+);
+
 /* Achat régime */
 $routes->post(
     '/acheter',
