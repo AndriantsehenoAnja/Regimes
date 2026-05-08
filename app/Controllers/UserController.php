@@ -20,16 +20,15 @@ class UserController extends BaseController
         $user = $userModel->where('email', $email)->first();
 
         if ($user && password_verify($password, $user['password'])) {
+            session()->set('user', $user);
+            return redirect()->to('/');
             // Authentification réussie
-            session()->set('user_id', $user['id']);
-            session()->set('user_name', $user['nom']);
 
-            return redirect()->to('/dashboard');
         } else {
             // Authentification échouée
             session()->setFlashdata('error', 'Email ou mot de passe incorrect.');
 
-            return redirect()->back();
+            return redirect()->to('/login');
         }
     }
 
@@ -37,12 +36,12 @@ class UserController extends BaseController
     {
         session()->destroy();
 
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 
     public function inscription(): string
     {
-        return view('inscription1');
+        return view('inscription/inscription1');
     }
 
     public function save_user1()
@@ -51,7 +50,7 @@ class UserController extends BaseController
         $data = [
             'nom' => $this->request->getPost('nom'),
             'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'password' => $this->request->getPost('password'),
             'genre_id' => $this->request->getPost('genre_id'),
             'is_gold' => false,
             'solde' => 0
@@ -59,19 +58,31 @@ class UserController extends BaseController
         $session->set("user_data", $data);
         return redirect()->to('/inscription2');
     }
-    
-     public function save_user2()
+    public function inscription2(): string
+    {
+        return view('inscription/inscription2');
+    }
+     public function save_user2()   
     {
         $session = session();
+
+        $data=[
+            'taille' => $this->request->getPost('taille'),
+            'poids' => $this->request->getPost('poids'),
+        ];
+
+        $session->set("user_data_sante", $data);
+        return redirect()->to('/confirmation');
+    }
+    public function confirmation(): string
+    {
+        return view('inscription/confirmation');
+    }
+
+    public function insertConfirmation(){
+        $session = session();
         $userData = $session->get("user_data");
-
-        if (!$userData) {
-            return redirect()->to('/inscription1');
-        }
-
-        $taille = $this->request->getPost('taille');
-        $poids = $this->request->getPost('poids');
-
+        $userHealthData = $session->get("user_data_sante");
         $userModel = new \App\Models\UserModel();
         $userId = $userModel->insert($userData);
 
@@ -79,21 +90,20 @@ class UserController extends BaseController
             $userHealthModel = new \App\Models\UserHealthModel();
             $userHealthModel->insert([
                 'user_id' => $userId,
-                'taille' => $taille,
-                'poids' => $poids,
-                'imc' => $poids / (($taille) * ($taille))
+                'taille' => $userHealthData['taille'],
+                'poids' => $userHealthData['poids'],
+                'imc' => $userHealthData['poids'] / (($userHealthData['taille']) * ($userHealthData['taille']))
             ]);
             session()->set("user", $userModel->find($userId));
 
             session()->setFlashdata('success', 'Inscription réussie. Vous pouvez maintenant vous connecter.');
 
-            return redirect()->to('/confirmation');
+            return redirect()->to('/');
         } else {
             session()->setFlashdata('error', 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
 
             return redirect()->to('/inscription1');
         }
-
     }
 
     public function precedente()
