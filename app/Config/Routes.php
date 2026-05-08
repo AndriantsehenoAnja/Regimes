@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+/* Code */
 $routes->get(
     '/code/form',
     'CodeController::index'
@@ -15,4 +16,15 @@ $routes->get(
 $routes->post(
     '/code/ajouter',
     'CodeController::ajouterArgent'
+);
+
+/* Option Gold */
+$routes->get(
+    '/gold/form',
+    'GoldController::index'
+);
+
+$routes->post(
+    '/gold/activer',
+    'GoldController::activer'
 );
