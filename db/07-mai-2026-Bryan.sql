@@ -1,269 +1,117 @@
 CREATE DATABASE regimes;
 USE regimes;
 
--- =====================================================
--- GENRES
--- =====================================================
-
+-- genre
 CREATE TABLE genres (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(50) NOT NULL
+    nom VARCHAR(50)
 );
-
--- =====================================================
--- USERS
--- =====================================================
-
+-- user table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    nom VARCHAR(100) NOT NULL,
-
-    email VARCHAR(100) NOT NULL UNIQUE,
-
-    password VARCHAR(255) NOT NULL,
-
-    genre_id INT NOT NULL,
-
+    nom VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255),
+    genre_id INT,
     is_gold BOOLEAN DEFAULT FALSE,
-
-    solde DECIMAL(10,2) DEFAULT 0,
-
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (genre_id)
-        REFERENCES genres(id)
+    solde DECIMAL(10,2) DEFAULT 0, -- tsy azo
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
 
--- =====================================================
--- USER HEALTH
--- =====================================================
-
+-- user sante
 CREATE TABLE user_health (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    user_id INT NOT NULL UNIQUE,
-
-    taille DECIMAL(5,2) NOT NULL,
-
-    poids DECIMAL(5,2) NOT NULL,
-
+    user_id INT,
+    taille DECIMAL(5,2), -- en mètre
+    poids DECIMAL(5,2),  -- en kg
     imc DECIMAL(5,2),
-
-    FOREIGN KEY (user_id)
-        REFERENCES users(id)
-        ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- =====================================================
--- OBJECTIFS
--- =====================================================
-
+-- objectifs possibles
 CREATE TABLE objectifs (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    nom VARCHAR(100) NOT NULL,
-
+    nom VARCHAR(100),
     description TEXT
 );
 
--- =====================================================
--- USER OBJECTIFS
--- Un utilisateur peut choisir plusieurs objectifs
--- =====================================================
-
+-- user objectifs
 CREATE TABLE user_objectifs (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    user_id INT NOT NULL,
-
-    objectif_id INT NOT NULL,
-
-    FOREIGN KEY (user_id)
-        REFERENCES users(id)
-        ON DELETE CASCADE,
-
-    FOREIGN KEY (objectif_id)
-        REFERENCES objectifs(id)
-        ON DELETE CASCADE
+    user_id INT,
+    objectif_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (objectif_id) REFERENCES objectifs(id)
 );
 
--- =====================================================
--- REGIMES
--- =====================================================
-
+-- regimes
 CREATE TABLE regimes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    nom VARCHAR(100) NOT NULL,
-
+    nom VARCHAR(100),
     description TEXT,
-
-    type_regime ENUM('perte','prise','equilibre') NOT NULL,
-
-    variation_poids_min DECIMAL(5,2) NOT NULL,
-
-    variation_poids_max DECIMAL(5,2) NOT NULL,
-
-    pourcentage_viande INT DEFAULT 0,
-
-    pourcentage_poisson INT DEFAULT 0,
-
-    pourcentage_volaille INT DEFAULT 0,
-
-    CHECK (
-        pourcentage_viande +
-        pourcentage_poisson +
-        pourcentage_volaille <= 100
-    )
+    prix DECIMAL(10,2),
+    duree INT, -- en jours
+    variation DECIMAL(5,2),
+    type_regime ENUM('perte','prise'),
+    pourcentage_viande INT,
+    pourcentage_poisson INT,
+    pourcentage_volaille INT
 );
 
--- =====================================================
--- PRIX DES REGIMES SELON LA DUREE
--- Exigence du PDF
--- =====================================================
-
-CREATE TABLE regime_prix (
+-- regime genre
+CREATE TABLE regime_genre(
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    regime_id INT NOT NULL,
-
-    duree_jours INT NOT NULL,
-
-    prix DECIMAL(10,2) NOT NULL,
-
-    FOREIGN KEY (regime_id)
-        REFERENCES regimes(id)
-        ON DELETE CASCADE
+    genre_id INT,
+    regime_id INT
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
+    FOREIGN KEY (regime_id) REFERENCES regime(id)
 );
 
--- =====================================================
--- REGIME / GENRE
--- =====================================================
 
-CREATE TABLE regime_genre (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-
-    genre_id INT NOT NULL,
-
-    regime_id INT NOT NULL,
-
-    FOREIGN KEY (genre_id)
-        REFERENCES genres(id)
-        ON DELETE CASCADE,
-
-    FOREIGN KEY (regime_id)
-        REFERENCES regimes(id)
-        ON DELETE CASCADE
-);
-
--- =====================================================
--- ACTIVITES SPORTIVES
--- =====================================================
-
+-- activites sportives
 CREATE TABLE activites (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    nom VARCHAR(100) NOT NULL,
-
+    nom VARCHAR(100),
     description TEXT,
-
-    calories_brulees INT DEFAULT 0
+    calories_brulees INT
 );
 
--- =====================================================
--- REGIME / ACTIVITE
--- =====================================================
-
+-- regimes - activites
 CREATE TABLE regime_activite (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    regime_id INT NOT NULL,
-
-    activite_id INT NOT NULL,
-
-    FOREIGN KEY (regime_id)
-        REFERENCES regimes(id)
-        ON DELETE CASCADE,
-
-    FOREIGN KEY (activite_id)
-        REFERENCES activites(id)
-        ON DELETE CASCADE
+    regime_id INT,
+    activite_id INT,
+    FOREIGN KEY (regime_id) REFERENCES regimes(id),
+    FOREIGN KEY (activite_id) REFERENCES activites(id)
 );
 
--- =====================================================
--- CODES PORTE MONNAIE
--- =====================================================
-
+-- code
 CREATE TABLE codes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    code VARCHAR(50) NOT NULL UNIQUE,
-
-    montant DECIMAL(10,2) NOT NULL,
-
+    code VARCHAR(50) UNIQUE,
+    montant DECIMAL(10,2),
     utilise BOOLEAN DEFAULT FALSE
 );
 
--- =====================================================
--- TRANSACTIONS
--- =====================================================
-
+-- transactions
 CREATE TABLE transactions (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    user_id INT NOT NULL,
-
-    code_id INT NOT NULL,
-
-    montant DECIMAL(10,2) NOT NULL,
-
+    user_id INT,
+    code_id INT,
+    montant DECIMAL(10,2),
     date_transaction TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (user_id)
-        REFERENCES users(id),
-
-    FOREIGN KEY (code_id)
-        REFERENCES codes(id)
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (code_id) REFERENCES codes(id)
 );
 
--- =====================================================
--- ACHAT REGIME
--- =====================================================
-
+-- achat regime
 CREATE TABLE achat_regime (
     id INT AUTO_INCREMENT PRIMARY KEY,
-
-    user_id INT NOT NULL,
-
-    regime_id INT NOT NULL,
-
-    regime_prix_id INT NOT NULL,
-
-    prix_paye DECIMAL(10,2) NOT NULL,
-
-    reduction_gold DECIMAL(10,2) DEFAULT 0,
-
+    user_id INT,
+    regime_id INT,
+    prix_paye DECIMAL(10,2),
     date_achat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (user_id)
-        REFERENCES users(id),
-
-    FOREIGN KEY (regime_id)
-        REFERENCES regimes(id),
-
-    FOREIGN KEY (regime_prix_id)
-        REFERENCES regime_prix(id)
-);
-
--- =====================================================
--- OPTION GOLD
--- =====================================================
-
-CREATE TABLE gold_abonnement (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-
-    prix DECIMAL(10,2) NOT NULL,
-
-    description TEXT
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (regime_id) REFERENCES regimes(id)
 );
