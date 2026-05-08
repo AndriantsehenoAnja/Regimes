@@ -1,5 +1,5 @@
 <?php
-session_start();
+$userSante = session()->get('user_data_sante') ?? [];
 ?>
 
 <!DOCTYPE html>
@@ -13,58 +13,19 @@ session_start();
 <div class="container">
 
     <h2>Formulaire 2</h2>
+    <form action="<?= base_url('/save_user2') ?>" method="post">
+        <input type="number" step="0.01" id="taille" name="taille" placeholder="Taille (m)"
+        value="<?= esc($userSante['taille'] ?? '') ?>">
 
-    <input type="number" id="taille" placeholder="Taille"
-    value="<?= $_SESSION['taille'] ?? '' ?>">
-
-    <input type="number" id="poids" placeholder="Poids"
-    value="<?= $_SESSION['poids'] ?? '' ?>">
-
-    <br>
-
-    <button onclick="precedent()">Précédent</button>
-
-    <button onclick="suivant()">Suivant</button>
+        <input type="number" step="0.1" id="poids" name="poids" placeholder="Poids (kg)"
+        value="<?= esc($userSante['poids'] ?? '') ?>">
+        <button type="submit">suivant</button>
+        <a href="<?= base_url('/inscription1') ?>">Précédent</a>
+    </form>
 
 </div>
 
 <script>
-
-function saveData(callback){
-
-    let taille = document.getElementById("taille").value;
-    let poids = document.getElementById("poids").value;
-
-    let xhr = new XMLHttpRequest();
-
-    xhr.open("POST","save.php",true);
-
-    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-
-    xhr.onload = callback;
-
-    xhr.send(
-        "taille="+taille+
-        "&poids="+poids
-    );
-}
-
-function precedent(){
-
-    saveData(function(){
-        window.location = "f1.php";
-    });
-
-}
-
-function suivant(){
-
-    saveData(function(){
-        window.location = "f3.php";
-    });
-
-}
-
 </script>
 
 </body>
