@@ -19,8 +19,7 @@ class RegimeModel extends Model
         'description',
         'prix',
         'duree',
-        'variation_poid_min',
-        'variation_poid_max',
+        'variation',
         'type_regime',
         'pourcentage_viande',
         'pourcentage_poisson',
@@ -45,9 +44,7 @@ class RegimeModel extends Model
 
         'duree' => 'required|integer',
 
-        'variation_poid_min' => 'required|decimal',
-
-        'variation_poid_max' => 'required|decimal',
+        'variation' => 'required|decimal',
 
         'type_regime' => 'required|in_list[perte,prise]',
 
@@ -75,13 +72,8 @@ class RegimeModel extends Model
             'integer' => 'La durée doit être un nombre entier.'
         ],
 
-        'variation_poid_min' => [
-            'required' => 'La variation minimale est obligatoire.',
-            'decimal' => 'Valeur invalide.'
-        ],
-
-        'variation_poid_max' => [
-            'required' => 'La variation maximale est obligatoire.',
+        'variation' => [
+            'required' => 'La variation est obligatoire.',
             'decimal' => 'Valeur invalide.'
         ],
 
@@ -116,6 +108,61 @@ class RegimeModel extends Model
         return $data;
     }
 
+    public function getSuggestedRegimes($type_objectif, $poids_cible)
+    {
+        $db = \Config\Database::connect();
+
+        $sql = "
+            SELECT 
+                r.id AS regime_id, r.nom AS regime_nom, r.duree AS regime_duree, r.prix AS regime_prix, r.variation AS regime_variation, r.type_regime,
+                a.id AS activite_id, a.nom AS activite_nom, ra.variation AS activite_variation, ra.type_activite
+            FROM regimes r
+            LEFT JOIN regime_activite ra ON r.id = ra.regime_id
+            LEFT JOIN activites a ON ra.activite_id = a.id
+            WHERE r.type_regime = ? OR (ra.type_activite = ? AND ra.type_activite IS NOT NULL)
+        ";
+
+        $query = $db->query($sql, [$type_objectif, $type_objectif]);
+        $results = $query->getResultArray();
+
+        $suggestions = [];
+
+        foreach ($results as $row) {
+            $variation_finale = 0;
+
+            // Calcul de la variation finale selon le type de régime et d'activité
+            if ($row['type_regime'] == $type_objectif) {
+                $variation_finale += $row['regime_variation'];
+            } else {
+                $variation_finale -= $row['regime_variation'];
+            }
+
+            if ($row['activite_variation'] != null) {
+                if ($row['type_activite'] == $type_objectif) {
+                    $variation_finale += $row['activite_variation'];
+                } else {
+                    $variation_finale -= $row['activite_variation'];
+                }
+            }
+
+            if ($variation_finale > 0) {
+                $multiplier = ceil($poids_cible / $variation_finale);
+
+                $suggestions[] = [
+                    'regime' => $row['regime_nom'],
+                    'activite' => $row['activite_nom'] ?? 'Aucune',
+                    'variation_finale_unitaire' => $variation_finale,
+                    'multiplicateur' => $multiplier,
+                    'duree_totale' => $row['regime_duree'] * $multiplier,
+                    'prix_total' => $row['regime_prix'] * $multiplier,
+                    'poids_estime_atteint' => $variation_finale * $multiplier
+                ];
+            }
+        }
+
+        return $suggestions;
+    }
+
     // régimes de perte de poids
     public function getRegimesPerte()
     {
@@ -144,21 +191,26 @@ class RegimeModel extends Model
                     ->findAll();
     }
 
-    public function getRegimesIMCideal($user,$valeur){
+    public function getRegimesIMCideal($user, $valeur)
+    {
         $usersan = new App\Models\UserHealthModel();
-        $usersante = $usersan->where('user_id =',$user['id'])->find();
-
-        $ecarsIMC = $usersante['imc'] - $valeur;
-        $poids = $ecarsIMC*$usersante['taille'];
-        if ($poids<0){
-            return $this->where(['type_regime =perte'],['variation_poid_min <=',$poids*(-1),'<= variation_poid_max'])
-                        ->findAll();
+        // Since find() might return multiple arrays or an entity, assuming get first element if needed, 
+        // or just first() depending on their structure. We keep their original lines.
+        $usersante = $usersan->where('user_id =', $user['id'])->first(); 
+        if (!$usersante) {
+            $usersante = $usersan->where('user_id =', $user['id'])->find();
+            if (isset($usersante[0])) {
+                $usersante = $usersante[0];
+            }
         }
-        else{
-            return $this->where(['type_regime =prise'],['variation_poid_min <=',$poids*(-1),'<= variation_poid_max'])
-                        ->findAll();
+        
+        $ecarsIMC = $usersante['imc'] - $valeur;
+        $poids = $ecarsIMC * $usersante['taille'];
+        
+        if ($poids < 0) {
+            return $this->getSuggestedRegimes('perte', $poids * (-1));
+        } else {
+            return $this->getSuggestedRegimes('prise', $poids);
         }
     }
-
-    
 }
