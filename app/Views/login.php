@@ -21,5 +21,6 @@
         <br>
         <input type="submit" value="Se connecter">
     </form>
+    <a href="<?= base_url('inscription1') ?>">Vous n'avez pas de compte ? S'inscrire</a>
 </body>
 </html>
