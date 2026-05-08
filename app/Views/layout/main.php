@@ -1,9 +1,3 @@
-<?php
-if(isset($_SESSION['user'])){
-    $user = $_SESSION['user'];
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -88,6 +82,21 @@ if(isset($_SESSION['user'])){
                 Code
             </a>
 
+            <a href="<?= base_url('activite/form') ?>"
+               class="nav-item <?= (uri_string() == 'activite/form') ? 'active' : '' ?>">
+
+                <svg viewBox="0 0 24 24">
+                    <line x1="8" y1="6" x2="21" y2="6"/>
+                    <line x1="8" y1="12" x2="21" y2="12"/>
+                    <line x1="8" y1="18" x2="21" y2="18"/>
+                    <line x1="3" y1="6" x2="3.01" y2="6"/>
+                    <line x1="3" y1="12" x2="3.01" y2="12"/>
+                    <line x1="3" y1="18" x2="3.01" y2="18"/>
+                </svg>
+
+                Ajouter une activite 
+            </a>
+
             <!-- Gold -->
             <a href="<?= base_url('gold/form') ?>"
                class="nav-item <?= (uri_string() == 'gold/form') ? 'active' : '' ?>">
@@ -114,18 +123,19 @@ if(isset($_SESSION['user'])){
 
         <!-- User -->
         <div class="navbar-right">
-
-            <?php if(isset($user)){ ?>
-
+            <?php if(session()->has('user')){ ?>
+                <?php $user = session()->get('user'); ?>
+                <?php if(isset($user)){ ?>
+                
                 <!-- Solde -->
                 <div class="nav-item">
                     Solde :
-                    <?= number_format($user['solde'], 0, ',', ' ') ?> Ar
+                    <?= $user['solde'] ?> Ar
                 </div>
-
+                
                 <!-- User -->
                 <a href="#" class="user-row">
-
+                    
                     <div class="avatar">
                         <?= strtoupper($user['nom'][0]) ?>
                     </div>
@@ -134,26 +144,26 @@ if(isset($_SESSION['user'])){
                         <div class="name">
                             <?= $user['nom'] ?>
                         </div>
-
+                        
                         <?php if($user['is_gold']){ ?>
-                            <div class="role">
-                                Gold
-                            </div>
+                        <div class="role">
+                            Gold
+                        </div>
                         <?php } ?>
-
+                        
                     </div>
-
+                    
                 </a>
 
                 <!-- Logout -->
                 <a href="<?= base_url('logout') ?>"
-                   class="nav-item">
-
-                    Logout
-
+                class="nav-item">
+                
+                Logout
+                
                 </a>
-
-            <?php } else { ?>
+                
+                <?php }} else { ?>
 
                 <!-- Login -->
                 <a href="<?= base_url('login') ?>"

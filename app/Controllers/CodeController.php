@@ -70,7 +70,8 @@ class CodeController extends BaseController
             // Nouveau solde
             $nouveauSolde =
                 $user['solde'] + $code['montant'];
-
+            $user['solde'] = $nouveauSolde;
+            $session->set('user', $user);
             // Update user
             $userModel->update($userId, [
                 'solde' => $nouveauSolde
@@ -93,7 +94,7 @@ class CodeController extends BaseController
                     'Erreur transaction'
                 );
             }
-
+            $session->set('user', $user);
             $db->transCommit();
 
             return redirect()->back()
