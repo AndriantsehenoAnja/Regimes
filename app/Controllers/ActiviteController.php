@@ -6,6 +6,18 @@ use App\Models\ActiviteModel;
 
 class ActiviteController extends BaseController
 {
+    public function index()
+{
+    $activiteModel = new ActiviteModel();
+
+    $activites = $activiteModel
+        ->orderBy('id', 'DESC')
+        ->findAll();
+
+    return view('activite/index', [
+        'activites' => $activites
+    ]);
+}
     public function form()
     {
         return view('activite/form');
