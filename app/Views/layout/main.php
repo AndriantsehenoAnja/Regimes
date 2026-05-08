@@ -61,7 +61,7 @@
                 Programme de régime
             </a>
 
-            <a href="<?= base_url('/code') ?>"
+            <a href="<?= base_url('/code/form') ?>"
                class="nav-item <?= (uri_string() == 'code') ? 'active' : '' ?>">
 
                 <svg viewBox="0 0 24 24">
