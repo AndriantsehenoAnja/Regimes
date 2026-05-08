@@ -125,7 +125,10 @@ Activités
                         Calories brûlées :
                         <?= esc($activite['calories_brulees']) ?>
                     </div>
-
+                    <a href="<?= base_url('activite/edit/' . $activite['id']) ?>">
+                        Modifier
+                    </a>
+                    <a href="<?= base_url('activite/delete/' . $activite['id']) ?>" class="btn-delete">Supprimer</a>
                 </div>
 
             <?php endforeach; ?>
