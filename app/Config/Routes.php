@@ -19,3 +19,13 @@ $routes->post('/insertConfirmation', 'UserController::insertConfirmation');
 $routes->get('/login', 'UserController::login');
 $routes->post('/authenticate', 'UserController::authenticate');
 $routes->get('/logout', 'UserController::logout');
+
+$routes->get(
+    '/code/form',
+    'CodeController::index'
+);
+
+$routes->post(
+    '/code/ajouter',
+    'CodeController::ajouterArgent'
+);
