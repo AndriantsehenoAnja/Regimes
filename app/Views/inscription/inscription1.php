@@ -1,5 +1,5 @@
 <?php
-session_start();
+$userData = session()->get('user_data') ?? [];
 ?>
 
 <!DOCTYPE html>
@@ -12,26 +12,26 @@ session_start();
 
 <div class="container">
     <h2>Formulaire 1</h2>
-    <form action="/save_user1" method="post">
+    <form action="<?= base_url('/save_user1') ?>" method="post">
         <input type="text" id="nom" name="nom" placeholder="Nom"
-        value="<?= $_SESSION["user_data"]['nom'] ?? '' ?>">
+        value="<?= esc($userData['nom'] ?? '') ?>">
 
         <input type="email" id="email" name="email" placeholder="Email"
-        value="<?= $_SESSION["user_data"]['email'] ?? '' ?>">
+        value="<?= esc($userData['email'] ?? '') ?>">
 
     <input type="password" id="password" name="password" placeholder="Mot de passe"
-    value="<?= $_SESSION["user_data"]['password'] ?? '' ?>">
+    value="">
 
     <br><br>
 
     Genre :
 
-    <input type="radio" name="genre" value="Homme"
-    <?= (($_SESSION["user_data"]['genre'] ?? '') == 'Homme') ? 'checked' : '' ?>>
+    <input type="radio" name="genre_id" value="1"
+    <?= (strval($userData['genre_id'] ?? '') === '1') ? 'checked' : '' ?>>
     Homme
 
-    <input type="radio" name="genre" value="Femme"
-    <?= (($_SESSION["user_data"]['genre'] ?? '') == 'Femme') ? 'checked' : '' ?>>
+    <input type="radio" name="genre_id" value="2"
+    <?= (strval($userData['genre_id'] ?? '') === '2') ? 'checked' : '' ?>>
     Femme
 
     <br>

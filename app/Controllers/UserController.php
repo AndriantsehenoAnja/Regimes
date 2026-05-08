@@ -99,7 +99,7 @@ class UserController extends BaseController
 
             session()->setFlashdata('success', 'Inscription réussie. Vous pouvez maintenant vous connecter.');
 
-            return redirect()->to('/confirmation');
+            return redirect()->to('/');
         } else {
             session()->setFlashdata('error', 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
 
