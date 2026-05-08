@@ -29,7 +29,7 @@ if (($userData['genre_id'] ?? '') === '1') {
 
     <p><b>Genre :</b> <?= esc($genreLabel) ?></p>
 
-    <p><b>Taille :</b> <?= esc($userSante['taille'] ?? '') ?> m</p>
+    <p><b>Tailles :</b> <?= esc($userSante['taille'] ?? '') ?> m</p>
 
     <p><b>Poids :</b> <?= esc($userSante['poids'] ?? '') ?> kg</p>
 
