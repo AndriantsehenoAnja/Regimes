@@ -20,16 +20,15 @@ class UserController extends BaseController
         $user = $userModel->where('email', $email)->first();
 
         if ($user && password_verify($password, $user['password'])) {
+            session()->set('user', $user);
+            return redirect()->to('/');
             // Authentification réussie
-            session()->set('user_id', $user['id']);
-            session()->set('user_name', $user['nom']);
 
-            return redirect()->to('/dashboard');
         } else {
             // Authentification échouée
             session()->setFlashdata('error', 'Email ou mot de passe incorrect.');
 
-            return redirect()->back();
+            return redirect()->to('/login');
         }
     }
 
@@ -51,7 +50,7 @@ class UserController extends BaseController
         $data = [
             'nom' => $this->request->getPost('nom'),
             'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'password' => $this->request->getPost('password'),
             'genre_id' => $this->request->getPost('genre_id'),
             'is_gold' => false,
             'solde' => 0
