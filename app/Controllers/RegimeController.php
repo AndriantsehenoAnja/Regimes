@@ -244,4 +244,74 @@ class RegimeController extends BaseController
             'regimes' => $regimes
         ]);
     }
+
+    public function ajouterActivite($id)
+{
+    $regimeModel = new RegimeModel();
+    $db = \Config\Database::connect();
+
+    $regime = $regimeModel->find($id);
+
+    if (!$regime) {
+        return redirect()->to('/regimes')->with('error', 'Régime non trouvé.');
+    }
+
+    // Récupérer les activités déjà liées à ce régime
+    $activitesLiees = $db->table('regime_activite')
+        ->select('activite_id')
+        ->where('regime_id', $id)
+        ->get()
+        ->getResultArray();
+
+    $idsExclus = array_column($activitesLiees, 'activite_id');
+
+    // Récupérer toutes les activités NON encore liées à ce régime
+    $builder = $db->table('activites');
+
+    if (!empty($idsExclus)) {
+        $builder->whereNotIn('id', $idsExclus);
+    }
+
+    $activites = $builder->get()->getResultArray();
+
+    return view('regime/ajoutActivite', [
+        'regime' => $regime,
+        'activites' => $activites
+    ]);
+}
+public function storeActivite($id)
+{
+    $regimeModel = new RegimeModel();
+    $db = \Config\Database::connect();
+
+    $regime = $regimeModel->find($id);
+
+    if (!$regime) {
+        return redirect()->to('/regimes')->with('error', 'Régime non trouvé.');
+    }
+
+    $activites = $this->request->getPost('activites');
+    $variations = $this->request->getPost('variation_activite');
+
+    if (!$activites) {
+        return redirect()->back()->with('error', 'Aucune activité sélectionnée.');
+    }
+
+    foreach ($activites as $activiteId) {
+
+        $variation = isset($variations[$activiteId]) ? $variations[$activiteId] : 0;
+
+        // Exemple de logique simple :
+        $type = ($variation > 0) ? 'prise' : 'perte';
+
+        $db->table('regime_activite')->insert([
+            'regime_id'    => $id,
+            'activite_id'  => $activiteId,
+            'type_activite'=> $type,
+            'variation'    => $variation
+        ]);
+    }
+
+    return redirect()->to('/regimes')->with('success', 'Activités ajoutées avec succès.');
+}
 }

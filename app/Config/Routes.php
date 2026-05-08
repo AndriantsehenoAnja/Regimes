@@ -97,3 +97,5 @@ $routes->get('regimes', 'RegimeController::index');
 $routes->get('regimes/edit/(:num)', 'RegimeController::edit/$1');
 $routes->post('regimes/update/(:num)', 'RegimeController::update/$1');
 $routes->get('regimes/delete/(:num)', 'RegimeController::delete/$1');
+$routes->get('regimes/ajouterActivite/(:num)', 'RegimeController::ajouterActivite/$1');
+$routes->post('regimes/ajouterActivite/(:num)', 'RegimeController::storeActivite/$1');

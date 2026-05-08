@@ -16,6 +16,7 @@
                 </li>
                 <a href="/regimes/edit/<?= esc($regime['id']) ?>">Modifier</a>
                 <a href="/regimes/delete/<?= esc($regime['id']) ?>">Supprimer</a>
+                <a href="/regimes/ajouterActivite/<?= esc($regime['id']) ?>">Ajouter une activité</a>
                 <h4>les activites</h4>
                 
             </div>
