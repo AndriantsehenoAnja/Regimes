@@ -21,43 +21,36 @@ class RegimeController extends BaseController
         $objectifData = $session->get("objectif_data");
 
         if (!$objectifData) {
-
             return redirect()->to('/objectif')
                 ->with('error', 'Veuillez sélectionner un objectif.');
         }
 
         $objectif = (int)$objectifData['objectif'];
+        $valeur = $this->request->getPost('valeur');
 
         $regimeModel = new \App\Models\RegimeModel();
 
         if ($objectif === 3 && !$session->get("user")) {
-
             return redirect()->to('/health')
                 ->with('error', 'Veuillez fournir vos informations santé.');
-        }
+        } else if ($objectif === 3 && $session->get("user")) {
+            // L'utilisateur entre l'IMC cible (dans valeur), le modèle calcule automatiquement la perte/prise et le poids
+            $regimes = $regimeModel->getRegimesIMCideal($session->get("user"), $valeur);
 
-        else if ($objectif === 3 && $session->get("user")) {
-
-            $valeur = $this->request->getPost('valeur');
-
-            $regimes = $regimeModel
-                ->getRegimesIMCideal($session->get("user"), $valeur);
+            return view('regime_suggere', [
+                'regimes' => $regimes
+            ]);
+        } else if ($objectif === 1) {
+            // Objectif 1: Perdre du poids, la valeur postée est le nombre de kg à perdre
+            $regimes = $regimeModel->getSuggestedRegimes('perte', $valeur);
 
             return view('regime_suggere', [
                 'regimes' => $regimes
             ]);
         }
 
-        else if ($objectif === 1) {
-
-            $regimes = $regimeModel->getRegimesPerte();
-
-            return view('regime_suggere', [
-                'regimes' => $regimes
-            ]);
-        }
-
-        $regimes = $regimeModel->getRegimesPrise();
+        // Objectif 2: Prendre du poids, la valeur postée est le nombre de kg à prendre
+        $regimes = $regimeModel->getSuggestedRegimes('prise', $valeur);
 
         return view('regime_suggere', [
             'regimes' => $regimes
