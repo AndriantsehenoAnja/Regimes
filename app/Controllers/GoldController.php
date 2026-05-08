@@ -65,7 +65,7 @@ class GoldController extends BaseController
             // Nouveau solde
             $nouveauSolde =
                 $user['solde'] - $this->goldPrice;
-
+             $session->set('user', $user);
             // Update user
             $userModel->update($userId, [
                 'solde' => $nouveauSolde,
@@ -85,7 +85,7 @@ class GoldController extends BaseController
                 'is_gold' => 1,
                 'solde' => $nouveauSolde
             ]);
-
+        
             return redirect()->back()
                 ->with(
                     'success',
