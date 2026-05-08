@@ -41,3 +41,14 @@ $routes->post(
     '/gold/activer',
     'GoldController::activer'
 );
+
+/* CRUD activite */
+$routes->get(
+    'activite/form',
+    'ActiviteController::form'
+);
+
+$routes->post(
+    'activite/save',
+    'ActiviteController::save'
+);
