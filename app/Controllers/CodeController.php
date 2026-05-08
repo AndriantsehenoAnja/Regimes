@@ -17,7 +17,8 @@ class CodeController extends BaseController
     {
         $session = session();
 
-        $userId = $session->get('user_id');
+        $user = $session->get('user');
+        $userId = $user['id'] ;
 
         if (!$userId) {
             return redirect()->to('/login');

@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 $routes->get(
-    '/code',
+    '/code/form',
     'CodeController::index'
 );
 
