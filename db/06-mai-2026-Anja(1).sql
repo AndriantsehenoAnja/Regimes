@@ -6,7 +6,7 @@ CREATE TABLE genres (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50)
 );
--- user table
+-- users table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
@@ -19,7 +19,7 @@ CREATE TABLE users (
     FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
 
--- user sante
+-- users sante
 CREATE TABLE user_health (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
