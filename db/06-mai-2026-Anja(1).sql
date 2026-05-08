@@ -6,7 +6,7 @@ CREATE TABLE genres (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50)
 );
--- users table
+-- user table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
@@ -15,11 +15,11 @@ CREATE TABLE users (
     genre_id INT,
     is_gold BOOLEAN DEFAULT FALSE,
     solde DECIMAL(10,2) DEFAULT 0, -- tsy azo
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
 
--- users sante
+-- user sante
 CREATE TABLE user_health (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -63,9 +63,9 @@ CREATE TABLE regimes (
 CREATE TABLE regime_genre(
     id INT AUTO_INCREMENT PRIMARY KEY,
     genre_id INT,
-    regime_id INT,
-    FOREIGN KEY (genre_id) REFERENCES genres(id),
-    FOREIGN KEY (regime_id) REFERENCES regimes(id)
+    regime_id INT
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
+    FOREIGN KEY (regime_id) REFERENCES regime(id)
 );
 
 
