@@ -19,11 +19,11 @@ class GoldController extends BaseController
     {
         $session = session();
         $user = $session->get('user');
-        $userId = $user['id'] ;
-
-        if (!$userId) {
+        
+        if (!$user) {
             return redirect()->to('/login');
         }
+        $userId = $user['id'] ;
 
         $userModel = new UserModel();
 
