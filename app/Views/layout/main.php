@@ -6,7 +6,8 @@
 
     <title><?= $this->renderSection('title') ?></title>
 
-    <link rel="stylesheet" href="<?= base_url('/style/layout-main.css') ?>">
+    <!-- Stylesheet - CSS Moderne (SCSS compilé) -->
+    <link rel="stylesheet" href="<?= base_url('/style/main.css') ?>">
 </head>
 
 <body>

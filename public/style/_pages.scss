@@ -1,0 +1,719 @@
+// ╔══════════════════════════════════════════════════════════════╗
+// ║              Page-Specific Styles                             ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+// ───────────────────────────────────────────────────────────
+// HOME / ACCUEIL PAGE
+// ───────────────────────────────────────────────────────────
+
+.home,
+.accueil-page {
+  .main {
+    @include container;
+    padding-top: $spacing-3xl;
+    padding-bottom: $spacing-3xl;
+
+    h1 {
+      text-align: center;
+      margin-bottom: $spacing-2xl;
+      animation: slideUp $transition-base;
+    }
+  }
+
+  .features-grid {
+    @include grid-auto-fit(280px);
+    margin-top: $spacing-3xl;
+  }
+
+  .feature-card {
+    @include card;
+    @include hover-lift;
+    text-align: center;
+    padding: $spacing-2xl;
+
+    .feature-icon {
+      font-size: $font-size-4xl;
+      margin-bottom: $spacing-lg;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// LOGIN PAGE
+// ───────────────────────────────────────────────────────────
+
+.login-page,
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px);
+  padding: $spacing-2xl;
+
+  .auth-container {
+    width: 100%;
+    max-width: 400px;
+    animation: slideUp $transition-base;
+  }
+
+  .auth-card {
+    @include card;
+    border: 2px solid $color-border-light;
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: $spacing-2xl;
+
+      h2 {
+        margin: 0 0 $spacing-md 0;
+        font-size: $font-size-2xl;
+      }
+
+      p {
+        color: $color-text-secondary;
+        margin: 0;
+      }
+    }
+
+    .auth-divider {
+      @include divider;
+      margin: $spacing-xl 0;
+
+      &.divider-text span {
+        background: $color-bg-secondary;
+      }
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: $spacing-xl;
+
+      a {
+        color: $color-primary;
+        font-weight: $font-weight-medium;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .remember-me {
+    @include flex-center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+
+    input[type='checkbox'] {
+      margin: 0;
+    }
+
+    label {
+      margin: 0;
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// PROFILE PAGE
+// ───────────────────────────────────────────────────────────
+
+.profile-page {
+  @include container;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+
+  .profile-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .profile-header {
+    @include card;
+    @include hover-lift;
+    padding: $spacing-2xl;
+    margin-bottom: $spacing-2xl;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: $spacing-xl;
+    align-items: start;
+
+    @include media-md {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: $radius-lg;
+    background: $color-primary;
+    color: $color-text-white;
+    @include flex-center;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    flex-shrink: 0;
+  }
+
+  .profile-info {
+    h1 {
+      margin: 0 0 $spacing-md 0;
+      font-size: $font-size-2xl;
+    }
+
+    p {
+      margin: $spacing-sm 0;
+      color: $color-text-secondary;
+    }
+  }
+
+  .profile-actions {
+    @include flex-center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+    @include media-md {
+      width: 100%;
+    }
+  }
+
+  .gold-badge {
+    @include badge;
+    background: $color-gold;
+    color: $color-text-white;
+  }
+
+  .solde-box {
+    @include card;
+    padding: $spacing-xl;
+    text-align: center;
+
+    .solde-label {
+      font-size: $font-size-sm;
+      color: $color-text-secondary;
+      margin-bottom: $spacing-md;
+    }
+
+    .solde-amount {
+      font-size: $font-size-3xl;
+      font-weight: $font-weight-extrabold;
+      color: $color-primary;
+    }
+  }
+
+  .profile-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-2xl;
+    margin-top: $spacing-2xl;
+  }
+
+  .profile-section {
+    @include card;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: $spacing-lg;
+      color: $color-primary;
+    }
+
+    .section-list {
+      list-style: none;
+
+      li {
+        padding: $spacing-md 0;
+        border-bottom: 1px solid $color-border-light;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        label {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// REGIME/DIET PAGES
+// ───────────────────────────────────────────────────────────
+
+.regime-page,
+.regimes-page {
+  @include container;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+
+  .page-title {
+    margin-bottom: $spacing-2xl;
+
+    h1 {
+      margin: 0 0 $spacing-md 0;
+    }
+
+    p {
+      color: $color-text-secondary;
+      margin: 0;
+    }
+  }
+
+  .regimes-grid {
+    @include grid-auto-fit(300px);
+    margin-top: $spacing-2xl;
+  }
+
+  .regime-card {
+    @include card;
+    @include hover-lift;
+    display: flex;
+    flex-direction: column;
+
+    .regime-title {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
+      margin: 0 0 $spacing-md 0;
+    }
+
+    .regime-description {
+      flex: 1;
+      color: $color-text-secondary;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-lg;
+    }
+
+    .regime-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-md;
+      margin-bottom: $spacing-lg;
+
+      .meta-item {
+        text-align: center;
+        padding: $spacing-md;
+        background: $color-bg-hover;
+        border-radius: $radius-md;
+
+        .meta-label {
+          font-size: $font-size-xs;
+          color: $color-text-secondary;
+          display: block;
+          margin-bottom: $spacing-sm;
+        }
+
+        .meta-value {
+          font-size: $font-size-lg;
+          font-weight: $font-weight-bold;
+          color: $color-primary;
+        }
+      }
+    }
+
+    .regime-actions {
+      @include flex-center;
+      gap: $spacing-md;
+      margin-top: auto;
+
+      button,
+      a {
+        flex: 1;
+      }
+    }
+  }
+
+  .regime-form {
+    max-width: 600px;
+    margin: $spacing-3xl auto;
+
+    @include card;
+
+    .form-section {
+      margin-bottom: $spacing-2xl;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      h3 {
+        margin-top: 0;
+        color: $color-primary;
+        margin-bottom: $spacing-lg;
+      }
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// ACTIVITY/ACTIVITÉ PAGES
+// ───────────────────────────────────────────────────────────
+
+.activity-page,
+.activite-page {
+  @include container;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+
+  .activities-grid {
+    @include grid-auto-fit(280px);
+    margin-top: $spacing-2xl;
+  }
+
+  .activity-card {
+    @include card;
+    @include hover-lift;
+
+    .activity-icon {
+      font-size: $font-size-3xl;
+      margin-bottom: $spacing-md;
+    }
+
+    .activity-name {
+      font-weight: $font-weight-bold;
+      margin: 0 0 $spacing-md 0;
+      font-size: $font-size-lg;
+    }
+
+    .activity-calories {
+      font-size: $font-size-2xl;
+      color: $color-primary;
+      font-weight: $font-weight-extrabold;
+      margin-bottom: $spacing-lg;
+
+      .unit {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+      }
+    }
+
+    .activity-description {
+      color: $color-text-secondary;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-lg;
+      @include line-clamp(2);
+    }
+
+    .activity-actions {
+      @include flex-between;
+      gap: $spacing-md;
+
+      button {
+        flex: 1;
+      }
+    }
+  }
+
+  .activity-form {
+    max-width: 600px;
+    margin: $spacing-3xl auto;
+
+    @include card;
+
+    .form-group {
+      margin-bottom: $spacing-lg;
+
+      label {
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-md;
+      }
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// CODE/PROMO PAGES
+// ───────────────────────────────────────────────────────────
+
+.code-page,
+.gold-page {
+  @include container;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+
+  .code-container {
+    max-width: 500px;
+    margin: $spacing-3xl auto;
+  }
+
+  .code-card {
+    @include card;
+    text-align: center;
+    padding: $spacing-2xl;
+
+    .code-badge {
+      @include badge;
+      background: $color-gold;
+      color: $color-text-white;
+      margin-bottom: $spacing-lg;
+    }
+
+    .code-display {
+      background: $color-bg-hover;
+      border-radius: $radius-lg;
+      padding: $spacing-xl;
+      margin: $spacing-lg 0;
+
+      .code-value {
+        font-family: $font-family-mono;
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        letter-spacing: 2px;
+        color: $color-primary;
+        word-break: break-all;
+      }
+    }
+
+    .code-benefits {
+      text-align: left;
+      margin-top: $spacing-2xl;
+      padding-top: $spacing-xl;
+      border-top: 1px solid $color-border;
+
+      h4 {
+        margin: 0 0 $spacing-md 0;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: $spacing-lg;
+
+        li {
+          margin-bottom: $spacing-md;
+          color: $color-text-secondary;
+
+          &::marker {
+            color: $color-gold;
+          }
+        }
+      }
+    }
+  }
+
+  .gold-features {
+    @include grid-auto-fit(250px);
+    margin-top: $spacing-2xl;
+  }
+
+  .feature-highlight {
+    @include card;
+    padding: $spacing-xl;
+    text-align: center;
+
+    .feature-icon {
+      font-size: $font-size-3xl;
+      color: $color-gold;
+      margin-bottom: $spacing-md;
+    }
+
+    h4 {
+      margin: 0 0 $spacing-md 0;
+    }
+
+    p {
+      margin: 0;
+      color: $color-text-secondary;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// PROGRAMME/PROGRAM PAGES
+// ───────────────────────────────────────────────────────────
+
+.programme-page,
+.programs-page {
+  @include container;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+
+  .programme-list {
+    @include grid-auto-fit(320px);
+    margin-top: $spacing-2xl;
+  }
+
+  .programme-card {
+    @include card;
+    @include hover-lift;
+
+    .programme-header {
+      padding-bottom: $spacing-lg;
+      border-bottom: 2px solid $color-primary;
+      margin-bottom: $spacing-lg;
+
+      h3 {
+        margin: 0 0 $spacing-sm 0;
+      }
+
+      p {
+        margin: 0;
+        color: $color-text-secondary;
+        font-size: $font-size-sm;
+      }
+    }
+
+    .programme-info {
+      margin-bottom: $spacing-lg;
+
+      .info-row {
+        @include flex-between;
+        padding: $spacing-md 0;
+        border-bottom: 1px solid $color-border-light;
+
+        .info-label {
+          color: $color-text-secondary;
+          font-weight: $font-weight-medium;
+        }
+
+        .info-value {
+          font-weight: $font-weight-bold;
+          color: $color-primary;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .programme-buttons {
+      @include flex-center;
+      gap: $spacing-md;
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// INSCRIPTION/SIGN UP PAGES
+// ───────────────────────────────────────────────────────────
+
+.inscription-page,
+.signup-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px);
+  padding: $spacing-2xl;
+
+  .inscription-container {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .inscription-card {
+    @include card;
+    border: 2px solid $color-border-light;
+
+    .inscription-header {
+      text-align: center;
+      margin-bottom: $spacing-2xl;
+
+      h2 {
+        margin: 0 0 $spacing-md 0;
+      }
+
+      p {
+        color: $color-text-secondary;
+        margin: 0;
+      }
+    }
+
+    .inscription-steps {
+      @include flex-center;
+      gap: $spacing-lg;
+      margin-bottom: $spacing-2xl;
+      padding-bottom: $spacing-xl;
+      border-bottom: 1px solid $color-border;
+
+      .step {
+        @include flex-center;
+        width: 40px;
+        height: 40px;
+        border-radius: $radius-full;
+        background: $color-bg-hover;
+        color: $color-text-secondary;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-sm;
+        transition: $transition-base;
+
+        &.active {
+          background: $color-primary;
+          color: $color-text-white;
+        }
+
+        &.completed {
+          background: $color-success;
+          color: $color-text-white;
+        }
+      }
+    }
+
+    .form-section {
+      margin-bottom: $spacing-xl;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .inscription-footer {
+      text-align: center;
+      margin-top: $spacing-xl;
+      padding-top: $spacing-xl;
+      border-top: 1px solid $color-border;
+
+      a {
+        color: $color-primary;
+        font-weight: $font-weight-medium;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// ERROR PAGES
+// ───────────────────────────────────────────────────────────
+
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px);
+  padding: $spacing-2xl;
+
+  .error-container {
+    text-align: center;
+    max-width: 500px;
+  }
+
+  .error-code {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-extrabold;
+    color: $color-danger;
+    margin-bottom: $spacing-lg;
+  }
+
+  .error-title {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-md;
+  }
+
+  .error-message {
+    color: $color-text-secondary;
+    margin-bottom: $spacing-2xl;
+    line-height: $line-height-normal;
+  }
+
+  .error-icon {
+    font-size: $font-size-4xl;
+    margin-bottom: $spacing-lg;
+  }
+}
