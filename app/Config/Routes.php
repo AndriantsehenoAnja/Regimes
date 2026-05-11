@@ -61,18 +61,26 @@ $routes->get(
 );
 
 
-// Admin Routes (CRUD Activites & Regimes)
+
+// Lecture seule pour tout le monde ou les utilisateurs connectés
+$routes->get('/activite', 'ActiviteController::index');
+$routes->get('regimes', 'RegimeController::index');
+
+// Admin Routes (Modification, Ajout & Suppression Activites & Regimes)
 $routes->group('', ['filter' => 'admin'], static function ($routes) {
-    /* CRUD activite */
-    $routes->get('/activite', 'ActiviteController::index');
+    /* CRUD activite limités aux admins*/
     $routes->get('/activite/form', 'ActiviteController::form');
     $routes->post('/activite/save', 'ActiviteController::save');
     $routes->get('/activite/edit/(:num)', 'ActiviteController::edit/$1');
     $routes->post('/activite/update/(:num)', 'ActiviteController::update/$1');
     $routes->get('/activite/delete/(:num)', 'ActiviteController::delete/$1');
 
-    // CRUD régimes
-    $routes->get('regimes', 'RegimeController::index');
+    
+    $routes->get('codes/validation', 'CodeController::validation');
+    $routes->post('codes/valider/(:num)', 'CodeController::valider/$1');
+    $routes->post('codes/refuser/(:num)', 'CodeController::refuser/$1');
+
+    // CRUD régimes limités aux admins
     $routes->get('regimes/create', 'RegimeController::create');
     $routes->post('regimes/store', 'RegimeController::store');
     $routes->get('regimes/edit/(:num)', 'RegimeController::edit/$1');

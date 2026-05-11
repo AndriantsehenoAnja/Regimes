@@ -8,9 +8,11 @@
             <h1>📋 Liste des régimes</h1>
             <p>Gérez tous vos programmes nutritionnels</p>
         </div>
+        <?php if(session()->get("isAdmin")): ?>
         <a href="<?= base_url('/regimes/create') ?>" class="btn-add">
             <span>➕</span> Ajouter un régime
         </a>
+        <?php endif; ?>
     </div>
 
     <?php if (session()->getFlashdata('success')) : ?>
@@ -120,6 +122,7 @@
                     <?php endif; ?>
                     
                     <!-- Actions -->
+                    <?php if(session()->get("isAdmin")): ?>
                     <div class="card-actions">
                         <a href="/regimes/edit/<?= esc($regime['id']) ?>" class="btn-edit">
                             ✏️ Modifier
@@ -133,6 +136,7 @@
                             🗑️ Supprimer
                         </a>
                     </div>
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>
