@@ -1,0 +1,23 @@
+{
+  "name": "regimes-app",
+  "version": "1.0.0",
+  "description": "Application de gestion de régimes - Projet MrRoj",
+  "main": "public/index.php",
+  "scripts": {
+    "sass": "sass public/style/main.scss public/style/main.css",
+    "sass:watch": "sass --watch public/style:public/style",
+    "sass:prod": "sass public/style/main.scss public/style/main.css --style=compressed"
+  },
+  "keywords": [
+    "regimes",
+    "diet",
+    "sass",
+    "scss",
+    "css"
+  ],
+  "author": "AndriantsehenoAnja",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}

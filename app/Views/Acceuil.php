@@ -28,19 +28,19 @@
             <h3>Programmes personnalisés</h3>
             <p>Des régimes adaptés à vos objectifs et à votre mode de vie pour des résultats optimaux</p>
         </div>
-        
+
         <div class="feature-card">
             <div class="feature-icon">💪</div>
             <h3>Suivi d'activité</h3>
             <p>Trackez vos progrès et restez motivé avec notre système de suivi intelligent</p>
         </div>
-        
+
         <div class="feature-card">
             <div class="feature-icon">⭐</div>
             <h3>Programme Gold</h3>
             <p>Débloquez des fonctionnalités exclusives et un accompagnement personnalisé</p>
         </div>
-        
+
         <div class="feature-card">
             <div class="feature-icon">📊</div>
             <h3>Statistiques détaillées</h3>
