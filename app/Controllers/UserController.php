@@ -21,6 +21,16 @@ class UserController extends BaseController
 
         if ($user && password_verify($password, $user['password'])) {
             session()->set('user', $user);
+            
+            // Check if user is admin
+            $db = \Config\Database::connect();
+            $admin = $db->table('is_admin')->where('id_user', $user['id'])->get()->getRow();
+            if ($admin) {
+                session()->set('isAdmin', true);
+            } else {
+                session()->set('isAdmin', false);
+            }
+            
             return redirect()->to('/');
             // Authentification réussie
 
