@@ -140,4 +140,80 @@ class AchatRegimeController extends BaseController
                 );
         }
     }
+
+    public function mesRegimes()
+    {
+        $session = session();
+        if (!$session->has('user')) {
+            return redirect()->to('/login')->with('error', 'Veuillez vous connecter');
+        }
+
+        $userId = $session->get('user')['id'];
+        
+        $db = \Config\Database::connect();
+        $builder = $db->table('achat_regime');
+        $builder->select('achat_regime.id, achat_regime.prix_paye as prix, achat_regime.date_achat as date_achat, regimes.nom as regime_nom, regimes.id as regime_id');
+        $builder->join('regimes', 'achat_regime.regime_id = regimes.id');
+        $builder->where('achat_regime.user_id', $userId);
+        $builder->orderBy('achat_regime.date_achat', 'DESC');
+        
+        $achats = $builder->get()->getResultArray();
+
+        return view('regime/mes_regimes', ['achats' => $achats]);
+    }
+
+    public function exportPdf($regimeId)
+    {
+        $session = session();
+        if (!$session->has('user')) {
+            return redirect()->to('/login')->with('error', 'Veuillez vous connecter');
+        }
+
+        $userId = $session->get('user')['id'];
+
+        $db = \Config\Database::connect();
+        
+        // Verifier que l'utilisateur a vraiment acheté ce régime
+        $builder = $db->table('achat_regime');
+        $builder->where('user_id', $userId);
+        $builder->where('regime_id', $regimeId);
+        $achat = $builder->get()->getRowArray();
+        
+        if (!$achat) {
+            return redirect()->to('/mes-regimes')->with('error', 'Vous n\'avez pas acheté ce régime.');
+        }
+
+        $regimeModel = new \App\Models\RegimeModel();
+        $regime = $regimeModel->find($regimeId);
+
+        // Activites associées
+        $db = \Config\Database::connect();
+        $builderAct = $db->table('regime_activite');
+        $builderAct->select('activites.nom');
+        $builderAct->join('activites', 'activites.id = regime_activite.activite_id');
+        $builderAct->where('regime_activite.regime_id', $regimeId);
+        $activites = $builderAct->get()->getResultArray();
+
+        $html = view('regime/pdf_template', [
+            'user' => $session->get('user'),
+            'date_achat' => $achat['date_achat'] ?? date('Y-m-d H:i:s'),
+            'regime' => $regime,
+            'activites' => $activites
+        ]);
+
+        $dompdf = new \Dompdf\Dompdf();
+        
+        // Dompdf Options
+        $options = new \Dompdf\Options();
+        $options->set('defaultFont', 'Helvetica');
+        $options->set('isHtml5ParserEnabled', true);
+        $dompdf->setOptions($options);
+
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        $dompdf->stream("regime-export-" . $regimeId . ".pdf", ["Attachment" => true]);
+        exit();
+    }
 }

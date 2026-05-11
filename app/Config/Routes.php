@@ -62,6 +62,11 @@ $routes->get(
 
 
 
+
+// Mes achats (Utilisateur)
+$routes->get('mes-regimes', 'AchatRegimeController::mesRegimes');
+$routes->get('mes-regimes/export/(:num)', 'AchatRegimeController::exportPdf/$1');
+
 // Lecture seule pour tout le monde ou les utilisateurs connectés
 $routes->get('/activite', 'ActiviteController::index');
 $routes->get('regimes', 'RegimeController::index');
