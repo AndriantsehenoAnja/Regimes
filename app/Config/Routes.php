@@ -76,6 +76,10 @@ $routes->group('', ['filter' => 'admin'], static function ($routes) {
     $routes->get('/activite/delete/(:num)', 'ActiviteController::delete/$1');
 
     
+
+    $routes->get('codes/create', 'CodeController::create');
+    $routes->post('codes/store', 'CodeController::store');
+    
     $routes->get('codes/validation', 'CodeController::validation');
     $routes->post('codes/valider/(:num)', 'CodeController::valider/$1');
     $routes->post('codes/refuser/(:num)', 'CodeController::refuser/$1');

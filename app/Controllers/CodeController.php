@@ -66,6 +66,36 @@ class CodeController extends BaseController
         return redirect()->back()->with('success', 'Votre demande a été soumise. Un administrateur va valider votre code bientôt.');
     }
 
+
+    public function create()
+    {
+        return view('code/create');
+    }
+
+    public function store()
+    {
+        $codeStr = trim($this->request->getPost('code'));
+        $montant = $this->request->getPost('montant');
+
+        if (empty($codeStr) || empty($montant)) {
+            return redirect()->back()->with('error', 'Veuillez remplir tous les champs.');
+        }
+
+        $codeModel = new CodeModel();
+        
+        if ($codeModel->where('code', $codeStr)->first()) {
+            return redirect()->back()->with('error', 'Ce code existe déjà.');
+        }
+
+        $codeModel->insert([
+            'code' => strtoupper($codeStr),
+            'montant' => $montant,
+            'utilise' => 0
+        ]);
+
+        return redirect()->to('/codes/validation')->with('success', 'Code créé avec succès.');
+    }
+
     public function validation()
     {
         $demandeModel = new DemandeCodeModel();

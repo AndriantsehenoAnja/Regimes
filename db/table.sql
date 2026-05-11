@@ -122,7 +122,8 @@ CREATE TABLE is_admin (
     id_user INT,
     FOREIGN KEY (id_user) REFERENCES users(id)
 );
-
+INSERT INTO is_admin (id_user) VALUES
+(5); -- Rabe est admin
 INSERT INTO genres (nom) VALUES
 ('Homme'),
 ('Femme');
