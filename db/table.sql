@@ -117,6 +117,13 @@ CREATE TABLE imc_details(
     categorie VARCHAR(50)
 );
 
+CREATE TABLE admin (
+    id_admin SERIAL PRIMARY KEY,
+    nom VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    mot_de_passe VARCHAR(255)
+);
+
 INSERT INTO genres (nom) VALUES
 ('Homme'),
 ('Femme');
