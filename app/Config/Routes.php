@@ -99,3 +99,8 @@ $routes->post('regimes/update/(:num)', 'RegimeController::update/$1');
 $routes->get('regimes/delete/(:num)', 'RegimeController::delete/$1');
 $routes->get('regimes/ajouterActivite/(:num)', 'RegimeController::ajouterActivite/$1');
 $routes->post('regimes/ajouterActivite/(:num)', 'RegimeController::storeActivite/$1');
+
+// admin
+$routes->get('login','AdminController::login');
+$routes->post('/admin/authenticate','AdminController::authenticate');
+$routes->get('/admin/dashbord','AdminController::index');

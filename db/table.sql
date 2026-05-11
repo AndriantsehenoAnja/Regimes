@@ -117,7 +117,7 @@ CREATE TABLE imc_details(
     categorie VARCHAR(50)
 );
 
-CREATE TABLE admin (
+CREATE TABLE is_admin (
     id_admin SERIAL PRIMARY KEY,
     nom VARCHAR(100),
     email VARCHAR(100) UNIQUE,
