@@ -129,6 +129,18 @@
             </a>
 
             <?php if(session()->get('isAdmin')): ?>
+            <!-- Dashboard Admin -->
+            <a href="<?= base_url('admin/dashboard') ?>"
+               class="nav-item <?= (uri_string() == 'admin/dashboard') ? 'active' : '' ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Tableau de bord
+            </a>
+
             <!-- Validation Codes (Admin Only) -->
             <a href="<?= base_url('codes/validation') ?>"
                class="nav-item <?= (uri_string() == 'codes/validation') ? 'active' : '' ?>">

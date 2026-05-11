@@ -100,6 +100,7 @@ $routes->group('', ['filter' => 'admin'], static function ($routes) {
 });
 
 // admin
+$routes->get('/admin/dashboard', 'AdminDashboardController::index', ['filter' => 'admin']);
 $routes->get('login','AdminController::login');
 $routes->post('/admin/authenticate','AdminController::authenticate');
 $routes->get('/admin/dashbord','AdminController::index');
