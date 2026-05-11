@@ -87,6 +87,18 @@
             </a>
 <?php endif; ?>
 
+            <?php if(!session()->get("isAdmin")): ?>
+<!-- Mes Achats -->
+            <a href="<?= base_url('mes-regimes') ?>"
+               class="nav-item <?= (uri_string() == 'mes-regimes') ? 'active' : '' ?>">
+                <svg viewBox="0 0 24 24">
+                    <rect width="20" height="14" x="2" y="5" rx="2" ry="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+                Mes Achats
+            </a>
+            <?php endif; ?>
+            
             <a href="<?= base_url('/activite') ?>"
                class="nav-item <?= (uri_string() == 'activite') ? 'active' : '' ?>">
 
