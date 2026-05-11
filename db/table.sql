@@ -119,9 +119,8 @@ CREATE TABLE imc_details(
 
 CREATE TABLE is_admin (
     id_admin SERIAL PRIMARY KEY,
-    nom VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    mot_de_passe VARCHAR(255)
+    id_user INT,
+    FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
 INSERT INTO genres (nom) VALUES
