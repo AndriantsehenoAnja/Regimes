@@ -1,0 +1,718 @@
+commit f842f9d4eac5f80f407d3f45cba94f6129cedd70
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Sat May 9 07:39:46 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Sat May 9 07:39:46 2026 +0300
+
+    Refactor regime management views with enhanced UI/UX
+    
+    - Updated the edit regime view to improve layout and styling, including better form organization and responsive design.
+    - Added JavaScript functionality to dynamically calculate and display the total percentage of composition.
+    - Enhanced the index regime view with a card layout for better visual representation of regimes, including badges for type and composition bars.
+    - Implemented alert messages for success and error feedback.
+    - Improved overall styling for better user experience and responsiveness across devices.
+
+commit 9b6436d7d42024da315bbeb6112fb7708cf37fec
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Sat May 9 07:27:32 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Sat May 9 07:27:32 2026 +0300
+
+    feat: Enhance regime creation and activity addition forms with improved layout, styling, and user experience
+
+commit 3bb38e9a8614afa131b0373d6a27e483d63b288c
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Sat May 9 07:22:06 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Sat May 9 07:22:06 2026 +0300
+
+    Refactor programme1 view: Enhance layout and styling for IMC and objective selection, improve responsiveness, and add animations. Update CSS for better visual appeal and user experience. Introduce new styles for confirmation and inscription pages.
+
+commit 77392cb75c0c5103a1faac53082db25c578f02b4
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Sat May 9 06:48:34 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Sat May 9 06:48:34 2026 +0300
+
+    fix: Update user session handling and improve gold page styling
+
+commit 301c28ce8ec980ff186aa67e64ea58e5a944c80d
+Merge: 496dfcd b0c21c0
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 06:21:37 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 06:21:37 2026 +0300
+
+    Merge branch 'mirado1' into dev
+
+commit b0c21c00c3ab07d5587bc36f542591295cf4c370
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 06:20:46 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 06:20:46 2026 +0300
+
+    feat: Add main SCSS file and setup script for automated CSS compilation
+    
+    - Created main.scss to manage styles with imports for variables, mixins, base styles, forms, navbar, components, and pages.
+    - Implemented global animations for various effects like fadeIn, slideUp, and scaleIn.
+    - Added a setup.sh script for automatic installation and compilation of SCSS, including npm dependency checks and build commands.
+    - Included documentation references for quick start and SCSS guidelines.
+
+commit 496dfcde73e8dcfe01dceb524a07f0a4c02723ca
+Merge: b2334a0 601d9ea
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 01:05:18 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 01:05:18 2026 +0300
+
+    Merge branch 'mirado1' into dev
+
+commit 601d9ea4fb77f2f2c86c0f82e59507ba66edc4ae
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 01:04:14 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 01:04:14 2026 +0300
+
+    fix: Correct title for activity editing page
+
+commit b2334a0082a86dcf168c33731940ebc0ca059108
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Sat May 9 01:03:05 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Sat May 9 01:03:05 2026 +0300
+
+    feat: Initialize database schema and create user, health, and regime tables with sample data
+
+commit 309d368243f0f180f56111bd3e9a9865521a4549
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 01:02:08 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 01:02:08 2026 +0300
+
+    fix: Correct label for size in confirmation page
+
+commit 81ec5f1a0de15b71052f3b073de2315ee0c6780e
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 01:01:09 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 01:01:09 2026 +0300
+
+    fix: Update confirmation page titles and labels for consistency
+
+commit fd7734c8439cc34806132742199033d2c019a263
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 00:58:30 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 00:58:30 2026 +0300
+
+    Fix comments for clarity in SQL schema
+
+commit 2d279a6ea90297936b59acb97cfdb6338d0264ac
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 00:52:36 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 00:52:36 2026 +0300
+
+    Update 06-mai-2026-Anja(1).sql
+
+commit a4ff603f5663e12cd916b88c6bc4242b7637ca83
+Merge: 5627885 b7b53bb
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 00:46:53 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 00:46:53 2026 +0300
+
+    Merge branch 'dev' into mirado1
+
+commit 56278857c99ce025ab1a4c35619539a86fdcf884
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Sat May 9 00:42:39 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Sat May 9 00:42:39 2026 +0300
+
+    Add confirmation and program selection pages with styling
+
+commit b7b53bb0b3cc86ec3fb987f6997a81f617c11e4c
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Sat May 9 00:28:39 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Sat May 9 00:28:39 2026 +0300
+
+    feat: Add activity management functionality to regime; implement views for adding activities
+
+commit 30a3f19d6170587cd566031709bc6d5683efa1da
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 23:54:37 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 23:54:37 2026 +0300
+
+    feat: Add IMC details model and integrate into ObjectifController; remove confirmation view
+
+commit 7fa100e8c5e74bc6e9d8f35972dc06a4cfb6a588
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 23:38:44 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 23:38:44 2026 +0300
+
+    feat: Refactor activity edit view to extend layout and remove HTML boilerplate
+
+commit 5df9ebed97e908b6e3b71340b0266c28ccc03050
+Merge: 17b50e2 4272cbb
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 23:30:02 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 23:30:02 2026 +0300
+
+    Merge branch 'dev' into Bryan
+
+commit 4272cbbb775876ec9177e16e846bff5d6f46dc2c
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 23:28:25 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 23:28:25 2026 +0300
+
+    feat: Implement activity editing, updating, and deletion functionality with corresponding views
+
+commit 17b50e2ae4d4e50330132e90340d9f975400b6e4
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 23:25:38 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 23:25:38 2026 +0300
+
+    feat: Update regime views to extend layout and add navigation link
+
+commit 73bd99841120fd54bd99f1c4b3a26e7339c131fe
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 23:13:13 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 23:13:13 2026 +0300
+
+    feat: Add activity management views and update routes
+
+commit b3100d6175b89ba96d01bde02b54597846082d1a
+Merge: 7653935 69ad41e
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 22:58:23 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 22:58:23 2026 +0300
+
+    Merge branch 'dev' into Bryan
+
+commit 765393538a33164f5fe07d6e2678bf52d0b9cfb0
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 22:56:59 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 22:56:59 2026 +0300
+
+    fix: Update navbar links and restructure programme1 view for consistency
+
+commit 69ad41e73cce92fea8768a25dabcb7f87b429153
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 22:55:31 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 22:55:31 2026 +0300
+
+    feat: Add RegimeActiviteModel and create views for regime management
+    
+    - Created RegimeActiviteModel to handle regime activities in the database.
+    - Added create.php view for adding new regimes with fields for name, description, price, duration, variation, and type.
+    - Implemented edit.php view for modifying existing regimes with pre-filled data.
+    - Developed index.php view to list all regimes with options to edit or delete.
+    - Updated database schema to include updated_at timestamp for regimes.
+    - Fixed session handling and error logging for user actions related to regimes.
+
+commit b0a0e59091540c9eb5179a43375b21de0181028c
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 22:49:58 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 22:49:58 2026 +0300
+
+    feat: Add user profile functionality with profile controller and view
+
+commit 799b2c5988a8871c21ada74687b151eed6b4bad6
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 22:34:22 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 22:34:22 2026 +0300
+
+    feat: Implement AchatRegime functionality with controller and model
+
+commit 69e8b71833ab69df20381290081114ff2a7b5fe7
+Merge: 69d611a 67c1087
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 21:38:30 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 21:38:30 2026 +0300
+
+    Merge branch 'Bryan' into dev
+
+commit 69d611a032193c86942dc923e0f522c3b5312389
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 21:37:05 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 21:37:05 2026 +0300
+
+    feat: Add new programme routes and controllers for user objectives
+    
+    - Introduced new routes for programme1 and regime suggestions.
+    - Created ObjectifController to handle objectives and display them in programme1 view.
+    - Added RegimeController logic to suggest regimes based on user input.
+    - Updated RegimeModel to improve regime suggestion logic and handle activities.
+    - Removed old HTML views for programmes and replaced them with new PHP views.
+    - Enhanced main layout to link to the new programme1 route.
+    - Updated session management to handle user data more effectively.
+
+commit 67c10875adb6736ba6da4399e776c7de3d91bd1b
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 21:35:12 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 21:35:12 2026 +0300
+
+    Add CRUD functionality for activity management with form and save methods
+
+commit 18f3fdd7252ea4beb4a88ae350e1dd7f9fa5d8e4
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 21:23:34 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 21:23:34 2026 +0300
+
+    Add ActiviteModel with validation rules for activity management
+
+commit 3cf6372e058e321039b4e7f821cc8f7c4d41599d
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 21:08:31 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 21:08:31 2026 +0300
+
+    Add registration link to login page
+
+commit 60618199704e8608b451bf459e1247df2dc1797a
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 20:59:13 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 20:59:13 2026 +0300
+
+    Update user balance handling and add new codes in database
+
+commit 993f9dbdc5e51982953bfe4aa3f012ed791f42c6
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 20:36:16 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 20:36:16 2026 +0300
+
+    Refactor session handling and update user session data retrieval in views
+
+commit be954fdc2d0690aba072283f37c697392f030431
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 20:14:51 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 20:14:51 2026 +0300
+
+    Implement user session handling in login and authentication processes
+
+commit 99a12443a264df335719a240b34646810e1966f5
+Merge: 3e1041c 7260d99
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 18:45:03 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 18:45:03 2026 +0300
+
+    Merge branch 'anja3' into dev
+
+commit 7260d997df490527ed3b08bb1a7eb3c992dc4e43
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 18:44:39 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 18:44:39 2026 +0300
+
+    a
+
+commit 3e1041c2f80f032708150ecfa292cdd2f57beeb7
+Merge: 270db4b f8c6bcd
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 18:40:44 2026 +0300
+Commit:     GitHub <noreply@github.com>
+CommitDate: Fri May 8 18:40:44 2026 +0300
+
+    Merge pull request #6 from AndriantsehenoAnja/anja3
+    
+    Refactor database configuration, update routes for confirmation, and …
+
+commit 270db4b555cc88b3d83caf88151c23cab2c177a8
+Merge: ccfa9ff 231fffb
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 18:39:32 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 18:39:32 2026 +0300
+
+    Merge branch 'dev' of https://github.com/AndriantsehenoAnja/Regimes into dev
+
+commit ccfa9ff08486c912ad781eb62a081bcf4bdd4ffb
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 18:38:25 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 18:38:25 2026 +0300
+
+    Update main layout with user session handling and navigation links for Gold feature
+
+commit f8c6bcd25d54b200f5acdd144730252572c3fda9
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 18:37:28 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 18:37:28 2026 +0300
+
+    Refactor database configuration, update routes for confirmation, and enhance user session handling; add confirmation view and remove deprecated files.
+
+commit 231fffb97ff14db2c3c211ac82c56a17b17b482b
+Merge: 7761839 49b4e75
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Fri May 8 18:18:30 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Fri May 8 18:18:30 2026 +0300
+
+    Merge branch 'mirado1' into dev
+
+commit 49b4e750a7711d82be703efc395b7bdb9b345e96
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Fri May 8 18:18:01 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Fri May 8 18:18:01 2026 +0300
+
+    Add confirmation and program selection pages with styling
+
+commit 77618397757d52171c982a05a78bb8e7a6f6ee71
+Merge: a2246f0 f03668d
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 18:02:21 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 18:02:21 2026 +0300
+
+    Merge branch 'Bryan' into dev
+
+commit f03668d0602f101f132804bed4abf7021ed71eb6
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 17:58:01 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 17:58:01 2026 +0300
+
+    Fix link in navigation for Code section to point to the form
+
+commit f21546a9e27e32cbe7a29153b2748d148e307506
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 17:44:32 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 17:44:32 2026 +0300
+
+    Add Gold feature with routes and view for activation
+
+commit a2246f025eca1c4534ec635477e73eb67935ce54
+Merge: a3ba6f9 b9ff7ee
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 17:44:29 2026 +0300
+Commit:     GitHub <noreply@github.com>
+CommitDate: Fri May 8 17:44:29 2026 +0300
+
+    Merge pull request #5 from AndriantsehenoAnja/anja2
+    
+    Add user authentication and confirmation routes, and update view file…
+
+commit b9ff7ee8b3ca217082e5ba7eff127e18d8932f68
+Merge: 177487d a3ba6f9
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 17:44:18 2026 +0300
+Commit:     GitHub <noreply@github.com>
+CommitDate: Fri May 8 17:44:18 2026 +0300
+
+    Merge branch 'dev' into anja2
+
+commit 177487dbbd647e46eebd8a0715a37ae0760a4a0e
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 17:42:24 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 17:42:24 2026 +0300
+
+    Add user authentication and confirmation routes, and update view files for improved session handling
+
+commit a3ba6f9fc2d66d9c081ba189cd8159a5a0110138
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 17:29:21 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 17:29:21 2026 +0300
+
+    Add GoldController with activation logic and session handling
+
+commit ac69e93c5e239a9b27b9b5128f86ddd6464b6695
+Merge: 9a8961d 2f9c830
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 17:16:24 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 17:16:24 2026 +0300
+
+    Merge branch 'dev' into Bryan
+
+commit 2f9c830536e9754bd3b37ae24a1467f3132d1a8f
+Author:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+AuthorDate: Fri May 8 17:13:36 2026 +0300
+Commit:     Mirado-Rkt <miradorakotonirina39@gmail.com>
+CommitDate: Fri May 8 17:13:36 2026 +0300
+
+    Add confirmation and registration forms with session data handling
+
+commit 9a8961dc72ebd42659a327d60b1990a8af15e2ab
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 17:04:12 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 17:04:12 2026 +0300
+
+    Fix route for CodeController and update view layout reference
+
+commit 2306a738b47ef21888d2e97bde6d10d0c475651c
+Merge: c3d0df2 5245514
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 16:30:26 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 16:30:26 2026 +0300
+
+    Merge branch 'dev' into Bryan
+
+commit c3d0df2aa41af416ba39bddf9d7d842505b6d7ce
+Merge: 79b0983 425dd71
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 16:29:37 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 16:29:37 2026 +0300
+
+    Merge branch 'dev' into Bryan
+
+commit 5245514eb7849200aa60c3b2417bf3cad823b718
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 16:27:55 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 16:27:55 2026 +0300
+
+    Update baseURL in App configuration to use port 1234
+
+commit 425dd71d2bf37b73427fb29d809134234487299b
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Fri May 8 16:26:09 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Fri May 8 16:26:09 2026 +0300
+
+    Refactor RegimeController and RegimeModel for improved regime suggestion logic and database schema updates
+
+commit 79b0983749eb6c325a0e6f08e1155366b45c3797
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 15:06:50 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 15:06:50 2026 +0300
+
+    Add navigation link for Code section in main layout
+
+commit 980e0a99bb255be3522f62c0fd52999c38327800
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 14:57:13 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 14:57:13 2026 +0300
+
+    Add routes and view for adding money feature
+
+commit 57685cfbbcaa7d627e1e00efc3593e9fb9b66a0a
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 12:51:55 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 12:51:55 2026 +0300
+
+    CodeController
+
+commit dcb358cc25eddf6e5acc86da430a8fa24693274d
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 11:46:50 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 11:46:50 2026 +0300
+
+    update base
+
+commit 6e1aa8bf3d9a05afa1a14a0199d8fa5b3fc13ff1
+Merge: ae0549d f4538c6
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Fri May 8 10:59:38 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Fri May 8 10:59:38 2026 +0300
+
+    Merge branch 'dev' into Bryan
+
+commit f4538c6d37c50312688ee6e3cf0071d85a4234d3
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 12:00:12 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 12:00:12 2026 +0300
+
+    Add initial database schema for regimes, including tables for users, health, objectives, and activities
+
+commit e466fa33157688e612d5fdd3556bea6a597f620e
+Merge: a0e0173 5e87d92
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 11:53:52 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 11:53:52 2026 +0300
+
+    Merge branch 'dev' of https://github.com/AndriantsehenoAnja/Regimes into dev
+
+commit 5e87d9221aab64881342e7cea7f52df5c1a4ab73
+Merge: 2b81083 b220218
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Thu May 7 11:14:02 2026 +0300
+Commit:     GitHub <noreply@github.com>
+CommitDate: Thu May 7 11:14:02 2026 +0300
+
+    Merge pull request #3 from AndriantsehenoAnja/anja1
+    
+    Enhance RegimeController and RegimeModel: add regime suggestion logic…
+
+commit b22021808ad80edc086b481e494a6eb8e32e0c0a
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Thu May 7 10:57:37 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Thu May 7 10:57:37 2026 +0300
+
+    Enhance RegimeController and RegimeModel: add regime suggestion logic and IMC-based regime retrieval
+
+commit 2b81083250f422e028d0c4e9f82a1a3e562c2ea9
+Merge: 14222e6 51ffb44
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Thu May 7 09:47:08 2026 +0300
+Commit:     GitHub <noreply@github.com>
+CommitDate: Thu May 7 09:47:08 2026 +0300
+
+    Merge pull request #2 from AndriantsehenoAnja/anja1
+    
+    Anja1
+
+commit ae0549daac85d3022f6cee630a1e7eda614487f8
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 09:46:47 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 09:46:47 2026 +0300
+
+    Update validation message for user_id in TransactionModel
+
+commit 51ffb44aa9b732dd97720464e751d874d9d81457
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Thu May 7 09:45:36 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Thu May 7 09:45:36 2026 +0300
+
+    Add RegimeController and RegimeModel; update UserController for health data handling
+
+commit 58f9e23a72ba747d11e9833e1947cfa30378004a
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 09:32:32 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 09:32:32 2026 +0300
+
+    Add TransactionModel for handling transaction data and validation
+
+commit fbe9608e20578e15ce3389986818cde3a26318dd
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 09:27:44 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 09:27:44 2026 +0300
+
+    CodeModel
+
+commit 0082ca6bfa16df63bfb8aaf53f8b85ab3e8bc7c5
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Thu May 7 09:17:54 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Thu May 7 09:17:54 2026 +0300
+
+    auth + inscription + login
+
+commit a0e017320ce831d53fdd3b43fe81d782961a50e4
+Merge: 14222e6 dd246f5
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 09:09:37 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 09:09:37 2026 +0300
+
+    Merge branch 'Bryan' into dev
+
+commit dd246f536a423fc36c628b67aeb7a3f83ab93146
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 09:08:47 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 09:08:47 2026 +0300
+
+    update controllerHome
+
+commit 1c24723a4fc9df327a80e9dba318628689d46d97
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 08:50:42 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 08:50:42 2026 +0300
+
+    update main-layout
+
+commit e8efb61c022367a679e08a0a8ab293d13335dfda
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Thu May 7 08:47:00 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Thu May 7 08:47:00 2026 +0300
+
+    userModel + UserHealthModel
+
+commit d2f5bd09911a9916c3f313ca54b0f8ca9874a787
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 08:22:44 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 08:22:44 2026 +0300
+
+    Add layout structure and styles for main view and navbar
+
+commit 5b2334a662db88e6eb49f7f167aef1cbcfc410b4
+Author:     Bryan <bryanmihajatiana101@gmail.com>
+AuthorDate: Thu May 7 07:50:41 2026 +0300
+Commit:     Bryan <bryanmihajatiana101@gmail.com>
+CommitDate: Thu May 7 07:50:41 2026 +0300
+
+    Creation fichier
+
+commit 14222e6691eb84df950170ec31d43c38491005f5
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Wed May 6 15:56:29 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Wed May 6 15:56:29 2026 +0300
+
+    update database + metier
+
+commit 575188e5e77f58f213a229b5a12bd5e14eaffabc
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Wed May 6 12:01:49 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Wed May 6 12:01:49 2026 +0300
+
+    logique metier
+
+commit fea33479a29422a1b8acc13517b709773aeaa8d8
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Wed May 6 10:49:56 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Wed May 6 10:49:56 2026 +0300
+
+    first base
+
+commit b87c9cf96ed10722edb5d8cb9dab1e2d9fc100fd
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Wed May 6 10:07:28 2026 +0300
+Commit:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+CommitDate: Wed May 6 10:07:28 2026 +0300
+
+    initialisation
+
+commit e0522bc6c8a1af0a66fb6b26e55bf95c9acf79dd
+Author:     AndriantsehenoAnja <andriantsehenoanja926@gmail.com>
+AuthorDate: Wed May 6 09:49:53 2026 +0300
+Commit:     GitHub <noreply@github.com>
+CommitDate: Wed May 6 09:49:53 2026 +0300
+
+    Initial commit
