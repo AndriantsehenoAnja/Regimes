@@ -1,0 +1,372 @@
+/* forms.css - Base pour tous les formulaires (respect des bonnes pratiques UX du PDF) */
+
+/* Container formulaire - Principe de clôture */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: fadeInUp 0.5s ease;
+}
+
+.form-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: var(--spacing-xl);
+    text-align: center;
+    color: white;
+}
+
+.form-header h1 {
+    font-size: var(--font-3xl);
+    margin-bottom: var(--spacing-xs);
+}
+
+.form-header p {
+    opacity: 0.9;
+}
+
+/* Structure multi-étapes (PDF p.8) */
+.form-steps {
+    display: flex;
+    background: var(--gray-100);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: var(--spacing-md);
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition-base);
+    color: var(--gray-600);
+}
+
+.step.active {
+    color: var(--secondary);
+    background: white;
+}
+
+.step.completed {
+    color: var(--success);
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.step.active .step-number {
+    background: var(--secondary);
+    color: white;
+}
+
+.step.completed .step-number {
+    background: var(--success);
+    color: white;
+}
+
+/* Barre de progression (PDF p.8) */
+.progress-bar {
+    height: 4px;
+    background: var(--gray-200);
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+    width: 0%;
+    transition: width var(--transition-base);
+}
+
+/* Corps du formulaire */
+.form-body {
+    padding: var(--spacing-2xl);
+}
+
+/* Groupes de champs - Principe de proximité */
+.form-group {
+    margin-bottom: var(--spacing-xl);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Labels - Au-dessus des champs (PDF p.9) */
+label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+label .required {
+    color: var(--error);
+    margin-left: var(--spacing-xs);
+}
+
+/* Champs de saisie - Bon contraste, espacement (PDF p.9) */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-base);
+    transition: all var(--transition-fast);
+    background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* Champ actif visible (PDF p.11) */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* Types de champs (PDF p.12) */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+}
+
+.radio-option input,
+.checkbox-option input {
+    width: auto;
+    margin: 0;
+}
+
+/* Image cliquable > texte (PDF p.13) */
+.image-choice {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+    cursor: pointer;
+}
+
+.choice-card {
+    text-align: center;
+    padding: var(--spacing-md);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.choice-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.choice-card.selected {
+    border-color: var(--secondary);
+    background: rgba(231, 76, 60, 0.05);
+}
+
+.choice-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* UX Writing - Boutons explicites (PDF p.10) */
+.btn-submit,
+.btn-next,
+.btn-prev {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    min-height: 48px;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--success) 0%, #219a52 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-next {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    color: white;
+}
+
+.btn-prev {
+    background: var(--gray-300);
+    color: var(--gray-700);
+}
+
+/* Gestion des erreurs (PDF p.17) */
+.error-message {
+    color: var(--error);
+    font-size: var(--font-small);
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.error-message::before {
+    content: "⚠";
+}
+
+input.error,
+select.error,
+textarea.error {
+    border-color: var(--error);
+    background: rgba(231, 76, 60, 0.05);
+}
+
+/* Validation en temps réel (PDF p.18) */
+input.valid {
+    border-color: var(--success);
+    background: rgba(39, 174, 96, 0.05);
+}
+
+.validation-feedback {
+    font-size: var(--font-small);
+    margin-top: var(--spacing-xs);
+}
+
+.validation-feedback.valid {
+    color: var(--success);
+}
+
+.validation-feedback.invalid {
+    color: var(--error);
+}
+
+/* Mot de passe - Affichage avec icône (PDF p.16) */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--gray-500);
+}
+
+/* Feedback utilisateur - Loader (PDF p.19) */
+.loader {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gray-300);
+    border-top-color: var(--secondary);
+    border-radius: var(--radius-full);
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Confirmation visuelle */
+.success-message {
+    background: rgba(39, 174, 96, 0.1);
+    border: 1px solid var(--success);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    color: var(--success);
+    margin-top: var(--spacing-md);
+}
+
+/* Aides contextuelles (PDF p.11) */
+.helper-text {
+    font-size: var(--font-small);
+    color: var(--gray-500);
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.helper-text::before {
+    content: "💡";
+}
+
+/* Format connu - Exemple téléphone (PDF p.9) */
+input[type="tel"] {
+    letter-spacing: 0.5px;
+}
+
+/* Autofill & Autocomplétion (PDF p.14) */
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px white inset;
+    border-color: var(--secondary-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-body {
+        padding: var(--spacing-lg);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .form-steps {
+        flex-direction: column;
+    }
+
+    .step {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
