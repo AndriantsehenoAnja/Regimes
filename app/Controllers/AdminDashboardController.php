@@ -10,28 +10,28 @@ class AdminDashboardController extends BaseController
     {
         $db = \Config\Database::connect();
         
-        // Statistiques clients
-        $clients_total = $db->query("SELECT COUNT(*) as total FROM clients")->getRow()->total ?? 0;
-        $clients_genre = $db->query("SELECT genre, COUNT(*) as count FROM clients GROUP BY genre")->getResultArray();
+        // Statistiques utilisateurs non-admin
+        $clients_total = $db->query("SELECT COUNT(*) as total FROM users WHERE id NOT IN (SELECT id_user FROM is_admin)")->getRow()->total ?? 0;
+        $clients_genre = $db->query("SELECT g.nom as genre, COUNT(u.id) as count FROM users u JOIN genres g ON u.genre_id = g.id WHERE u.id NOT IN (SELECT id_user FROM is_admin) GROUP BY g.nom")->getResultArray();
         
         // Statistiques argents
-        $chiffre_affaire = $db->query("SELECT SUM(montant) as total FROM achat_regimes")->getRow()->total ?? 0;
-        $achats_par_mois = $db->query("SELECT MONTH(date_achat) as mois, SUM(montant) as total FROM achat_regimes GROUP BY MONTH(date_achat)")->getResultArray();
+        $chiffre_affaire = $db->query("SELECT SUM(prix_paye) as total FROM achat_regime")->getRow()->total ?? 0;
+        $achats_par_mois = $db->query("SELECT MONTH(date_achat) as mois, SUM(prix_paye) as total FROM achat_regime GROUP BY MONTH(date_achat)")->getResultArray();
         
         // Statistiques régimes
-        $regimes_populaires = $db->query("SELECT r.nom, COUNT(ar.id_regime) as achats FROM achat_regimes ar JOIN regimes r ON ar.id_regime = r.id_regime GROUP BY r.id_regime ORDER BY achats DESC LIMIT 5")->getResultArray();
+        $regimes_populaires = $db->query("SELECT r.nom, COUNT(ar.regime_id) as achats FROM achat_regime ar JOIN regimes r ON ar.regime_id = r.id GROUP BY r.id, r.nom ORDER BY achats DESC LIMIT 5")->getResultArray();
 
         // Tableau croisé (pivot table): Achats de Régimes par Genre
-        // Assumant qu'on a un lien achat_regimes -> clients pour obtenir le genre
         $sql_croise = "
             SELECT r.nom as regime_nom,
-                   SUM(CASE WHEN c.genre = 1 THEN 1 ELSE 0 END) as masculin,
-                   SUM(CASE WHEN c.genre = 2 THEN 1 ELSE 0 END) as feminin,
+                   SUM(CASE WHEN g.nom = 'Homme' THEN 1 ELSE 0 END) as masculin,
+                   SUM(CASE WHEN g.nom = 'Femme' THEN 1 ELSE 0 END) as feminin,
                    COUNT(*) as total
-            FROM achat_regimes ar
-            JOIN regimes r ON ar.id_regime = r.id_regime
-            JOIN clients c ON ar.id_client = c.id_client
-            GROUP BY r.id_regime, r.nom
+            FROM achat_regime ar
+            JOIN regimes r ON ar.regime_id = r.id
+            JOIN users u ON ar.user_id = u.id
+            JOIN genres g ON u.genre_id = g.id
+            GROUP BY r.id, r.nom
         ";
         $achats_genre_croise = $db->query($sql_croise)->getResultArray();
         

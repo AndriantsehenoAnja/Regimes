@@ -8,13 +8,13 @@
 </style>
 
 <div class="container mt-5 mb-5">
-    <h1 class="mb-4">Tableau d'Administration (Dashboard)</h1>
+    <h1 class="mb-4">Tableau de bord et Statistiques</h1>
     
     <div class="row mt-4">
         <div class="col-md-4">
             <div class="card bg-primary text-white">
                 <div class="card-body">
-                    <h4 class="card-title">Total Clients</h4>
+                    <h4 class="card-title">Total Utilisateurs</h4>
                     <h2><?= $clients_total ?></h2>
                 </div>
             </div>
@@ -32,7 +32,7 @@
     <div class="row mt-4">
         <div class="col-md-6">
             <div class="card p-3">
-                <h4>Répartition des clients par genre</h4>
+                <h4>Répartition des utilisateurs par genre</h4>
                 <canvas id="genreChart" style="max-height: 300px;"></canvas>
             </div>
         </div>
@@ -101,7 +101,7 @@
     let genreLabels = [];
     let genreValues = [];
     genreData.forEach(d => {
-        genreLabels.push(d.genre == '1' ? 'Homme' : 'Femme');
+        genreLabels.push(d.genre);
         genreValues.push(d.count);
     });
 
@@ -128,7 +128,7 @@
         data: {
             labels: caLabels,
             datasets: [{
-                label: 'Chiffre d'affaire (Ar)',
+                label: "Chiffre d'affaire (Ar)",
                 data: caValues,
                 backgroundColor: '#4bc0c0'
             }]
