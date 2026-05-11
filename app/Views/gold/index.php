@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style/gold.css">
 <?= $this->extend('layout/main') ?>
 
 <?= $this->section('title') ?>

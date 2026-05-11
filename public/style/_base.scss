@@ -1,0 +1,278 @@
+// ╔══════════════════════════════════════════════════════════════╗
+// ║          Global Styles & Base Elements                       ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-family-default;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  background: $color-bg-primary;
+  margin: 0;
+  padding: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ───────────────────────────────────────────────────────────
+// HEADINGS
+// ───────────────────────────────────────────────────────────
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: $spacing-lg 0 $spacing-md 0;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+  @include media-md {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+  @include media-md {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+  @include media-md {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-xl;
+  @include media-md {
+    font-size: $font-size-lg;
+  }
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-base;
+}
+
+// ───────────────────────────────────────────────────────────
+// PARAGRAPH & TEXT
+// ───────────────────────────────────────────────────────────
+
+p {
+  margin: 0 0 $spacing-lg 0;
+  line-height: $line-height-normal;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+small {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+em {
+  font-style: italic;
+}
+
+// ───────────────────────────────────────────────────────────
+// LINKS
+// ───────────────────────────────────────────────────────────
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    color: $color-primary-light;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $color-primary;
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// LISTS
+// ───────────────────────────────────────────────────────────
+
+ul,
+ol {
+  margin: 0 0 $spacing-lg $spacing-xl;
+
+  li {
+    margin-bottom: $spacing-md;
+    line-height: $line-height-normal;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// CODE & PREFORMATTED TEXT
+// ───────────────────────────────────────────────────────────
+
+code {
+  font-family: $font-family-mono;
+  background: $color-secondary;
+  border: 1px solid $color-border;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-sm;
+  font-size: $font-size-sm;
+  color: $color-danger;
+}
+
+pre {
+  background: $color-text-primary;
+  color: $color-text-white;
+  padding: $spacing-lg;
+  border-radius: $radius-lg;
+  overflow-x: auto;
+  margin: 0 0 $spacing-lg 0;
+
+  code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// BLOCKQUOTE
+// ───────────────────────────────────────────────────────────
+
+blockquote {
+  padding-left: $spacing-lg;
+  border-left: 4px solid $color-border;
+  margin: $spacing-lg 0;
+  color: $color-text-secondary;
+  font-style: italic;
+}
+
+// ───────────────────────────────────────────────────────────
+// HORIZONTAL RULE
+// ───────────────────────────────────────────────────────────
+
+hr {
+  border: none;
+  border-top: 1px solid $color-border-light;
+  margin: $spacing-2xl 0;
+}
+
+// ───────────────────────────────────────────────────────────
+// TABLE
+// ───────────────────────────────────────────────────────────
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: $spacing-lg 0;
+
+  thead {
+    background: $color-bg-hover;
+
+    th {
+      padding: $spacing-lg;
+      text-align: left;
+      font-weight: $font-weight-bold;
+      border-bottom: 2px solid $color-border;
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background: $color-bg-hover;
+      }
+
+      td {
+        padding: $spacing-lg;
+        border-bottom: 1px solid $color-border-light;
+      }
+
+      &:last-child td {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// IMAGES
+// ───────────────────────────────────────────────────────────
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: $radius-md;
+}
+
+// ───────────────────────────────────────────────────────────
+// SCROLLBAR STYLING
+// ───────────────────────────────────────────────────────────
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg-hover;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-border;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $color-border-dark;
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// SELECTION
+// ───────────────────────────────────────────────────────────
+
+::selection {
+  background: $color-primary;
+  color: $color-text-white;
+}
+
+::-moz-selection {
+  background: $color-primary;
+  color: $color-text-white;
+}

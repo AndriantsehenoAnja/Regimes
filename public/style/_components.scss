@@ -1,0 +1,629 @@
+// ╔══════════════════════════════════════════════════════════════╗
+// ║              Component & Utility Classes                      ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+// ───────────────────────────────────────────────────────────
+// CARDS
+// ───────────────────────────────────────────────────────────
+
+.card {
+  @include card;
+  overflow: hidden;
+
+  .card-header {
+    padding: $spacing-xl;
+    border-bottom: 1px solid $color-border-light;
+    background: $color-secondary;
+
+    h2,
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .card-body {
+    padding: $spacing-xl;
+  }
+
+  .card-footer {
+    padding: $spacing-xl;
+    border-top: 1px solid $color-border-light;
+    background: $color-bg-hover;
+    @include flex-between;
+  }
+
+  &.card-hover {
+    @include hover-lift;
+  }
+
+  &.card-image {
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// ALERTS & NOTIFICATIONS
+// ───────────────────────────────────────────────────────────
+
+.alert {
+  padding: $spacing-lg $spacing-xl;
+  border-radius: $radius-md;
+  border-left: 4px solid;
+  margin-bottom: $spacing-lg;
+  @include flex-center;
+  gap: $spacing-md;
+
+  &::before {
+    font-size: $font-size-xl;
+    font-weight: bold;
+  }
+
+  .alert-title {
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-sm;
+  }
+
+  &.alert-success {
+    background-color: rgba($color-success, 0.1);
+    border-color: $color-success;
+    color: darken($color-success, 20%);
+
+    &::before {
+      content: '✓';
+    }
+  }
+
+  &.alert-danger {
+    background-color: rgba($color-danger, 0.1);
+    border-color: $color-danger;
+    color: darken($color-danger, 20%);
+
+    &::before {
+      content: '✕';
+    }
+  }
+
+  &.alert-warning {
+    background-color: rgba($color-warning, 0.1);
+    border-color: $color-warning;
+    color: darken($color-warning, 20%);
+
+    &::before {
+      content: '⚠';
+    }
+  }
+
+  &.alert-info {
+    background-color: rgba($color-info, 0.1);
+    border-color: $color-info;
+    color: darken($color-info, 20%);
+
+    &::before {
+      content: 'ℹ';
+    }
+  }
+
+  a {
+    color: inherit;
+    font-weight: $font-weight-bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// BADGES
+// ───────────────────────────────────────────────────────────
+
+.badge {
+  @include badge;
+  background: $color-primary;
+  color: $color-text-white;
+
+  &.badge-primary {
+    background: $color-primary;
+    color: $color-text-white;
+  }
+
+  &.badge-secondary {
+    background: $color-secondary;
+    color: $color-text-primary;
+    border: 1px solid $color-border;
+  }
+
+  &.badge-success {
+    background: $color-success;
+    color: $color-text-white;
+  }
+
+  &.badge-danger {
+    background: $color-danger;
+    color: $color-text-white;
+  }
+
+  &.badge-warning {
+    background: $color-warning;
+    color: $color-text-white;
+  }
+
+  &.badge-info {
+    background: $color-info;
+    color: $color-text-white;
+  }
+
+  &.badge-gold {
+    background: $color-gold;
+    color: $color-text-white;
+    font-weight: $font-weight-extrabold;
+  }
+
+  &.badge-outline {
+    background: transparent;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// BADGES WITH COUNTER
+// ───────────────────────────────────────────────────────────
+
+.badge-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: $radius-full;
+  background: $color-danger;
+  color: $color-text-white;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+}
+
+// ───────────────────────────────────────────────────────────
+// CONTAINERS & SECTIONS
+// ───────────────────────────────────────────────────────────
+
+.container {
+  @include container;
+}
+
+.section {
+  padding: $spacing-2xl 0;
+
+  @include media-md {
+    padding: $spacing-xl 0;
+  }
+
+  &.section-alt {
+    background: $color-secondary;
+  }
+
+  .section-title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-2xl;
+    text-align: center;
+
+    @include media-md {
+      font-size: $font-size-2xl;
+      margin-bottom: $spacing-xl;
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// GRID & ROW
+// ───────────────────────────────────────────────────────────
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+
+  @include media-md {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+
+  &.row-2 {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  &.row-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  &.row-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.col {
+  @apply (display: flex; flex-direction: column;);
+
+  &.col-auto {
+    flex: 0 1 auto;
+  }
+
+  &.col-fill {
+    flex: 1 1 auto;
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// PAGINATION
+// ───────────────────────────────────────────────────────────
+
+.pagination {
+  @include flex-center;
+  gap: $spacing-md;
+  margin: $spacing-2xl 0;
+  justify-content: center;
+
+  .page-item {
+    &.active a {
+      background: $color-primary;
+      color: $color-text-white;
+      cursor: default;
+    }
+
+    &.disabled a {
+      @include disabled-state;
+    }
+
+    a {
+      padding: $spacing-md $spacing-lg;
+      border: 1px solid $color-border;
+      border-radius: $radius-md;
+      color: $color-primary;
+      transition: $transition-base;
+
+      &:hover:not(.disabled) {
+        background: $color-bg-hover;
+      }
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// DIVIDER
+// ───────────────────────────────────────────────────────────
+
+.divider {
+  border: none;
+  border-top: 1px solid $color-border-light;
+  margin: $spacing-2xl 0;
+
+  &.divider-text {
+    text-align: center;
+    line-height: 1;
+    position: relative;
+    margin: $spacing-2xl 0;
+
+    span {
+      background: $color-bg-primary;
+      padding: 0 $spacing-lg;
+      color: $color-text-secondary;
+      font-weight: $font-weight-medium;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      border-top: 1px solid $color-border;
+      z-index: -1;
+    }
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// LOADER / SPINNER
+// ───────────────────────────────────────────────────────────
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid $color-border;
+  border-top-color: $color-primary;
+  border-radius: $radius-full;
+  animation: spin 1s linear infinite;
+
+  &.spinner-sm {
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+  }
+
+  &.spinner-lg {
+    width: 56px;
+    height: 56px;
+    border-width: 5px;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// SKELETON LOADERS
+// ───────────────────────────────────────────────────────────
+
+.skeleton {
+  background: linear-gradient(90deg, $color-border 0%, $color-border-light 50%, $color-border 100%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: $radius-md;
+
+  &.skeleton-text {
+    height: $font-size-base;
+    margin-bottom: $spacing-md;
+  }
+
+  &.skeleton-title {
+    height: $font-size-2xl;
+    width: 60%;
+    margin-bottom: $spacing-lg;
+  }
+
+  &.skeleton-image {
+    height: 200px;
+    width: 100%;
+    border-radius: $radius-lg;
+  }
+
+  &.skeleton-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// UTILITY CLASSES
+// ───────────────────────────────────────────────────────────
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-bold {
+  font-weight: $font-weight-bold;
+}
+
+.text-muted {
+  color: $color-text-secondary;
+}
+
+.text-primary {
+  color: $color-primary;
+}
+
+.text-success {
+  color: $color-success;
+}
+
+.text-danger {
+  color: $color-danger;
+}
+
+.text-warning {
+  color: $color-warning;
+}
+
+.text-info {
+  color: $color-info;
+}
+
+.text-truncate {
+  @include truncate;
+}
+
+.text-clamp-2 {
+  @include line-clamp(2);
+}
+
+.text-clamp-3 {
+  @include line-clamp(3);
+}
+
+// ───────────────────────────────────────────────────────────
+// DISPLAY UTILITIES
+// ───────────────────────────────────────────────────────────
+
+.d-none {
+  display: none !important;
+}
+
+.d-inline {
+  display: inline !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-grid {
+  display: grid !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
+@include media-md {
+  .d-none-md {
+    display: none !important;
+  }
+
+  .d-flex-md {
+    display: flex !important;
+  }
+}
+
+// ───────────────────────────────────────────────────────────
+// MARGIN & PADDING UTILITIES
+// ───────────────────────────────────────────────────────────
+
+.m-0 {
+  margin: 0;
+}
+
+.m-1 {
+  margin: $spacing-sm;
+}
+
+.m-2 {
+  margin: $spacing-lg;
+}
+
+.m-3 {
+  margin: $spacing-xl;
+}
+
+.m-4 {
+  margin: $spacing-2xl;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.p-1 {
+  padding: $spacing-sm;
+}
+
+.p-2 {
+  padding: $spacing-lg;
+}
+
+.p-3 {
+  padding: $spacing-xl;
+}
+
+.p-4 {
+  padding: $spacing-2xl;
+}
+
+// ───────────────────────────────────────────────────────────
+// FLEX UTILITIES
+// ───────────────────────────────────────────────────────────
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.gap-1 {
+  gap: $spacing-sm;
+}
+
+.gap-2 {
+  gap: $spacing-lg;
+}
+
+.gap-3 {
+  gap: $spacing-xl;
+}
+
+.gap-4 {
+  gap: $spacing-2xl;
+}
+
+// ───────────────────────────────────────────────────────────
+// OVERFLOW
+// ───────────────────────────────────────────────────────────
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
