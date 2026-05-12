@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AchatRegimeModel;
+use App\Models\UserHealthModel;
 
 class ProfileController extends BaseController
 {
@@ -21,7 +22,8 @@ class ProfileController extends BaseController
         }
 
         $user = $session->get('user');
-
+        $user_health = new UserHealthModel();
+        $user_health_data = $user_health->where('user_id', $user['id'])->first();
         $achatModel = new AchatRegimeModel();
 
         // Récupération des achats
@@ -31,7 +33,6 @@ class ProfileController extends BaseController
                 regimes.nom as regime_nom,
                 regimes.description,
                 regimes.duree,
-                regimes.type_regime
             ')
             ->join(
                 'regimes',
@@ -49,7 +50,8 @@ class ProfileController extends BaseController
 
         return view('profile/index', [
             'user' => $user,
-            'achats' => $achats
+            'achats' => $achats,
+            'user_info' => $user_health_data,
         ]);
     }
 }

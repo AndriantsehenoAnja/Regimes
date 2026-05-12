@@ -20,7 +20,7 @@ Option Gold
         <!-- Header -->
         <div class="form-header">
             <h2>Créer votre compte</h2>
-            <p>Rejoignez l'aventure Comme J'aime</p>
+            <p>Rejoignez l'aventure Gomme Ton Ventre</p>
         </div>
 
         <!-- Formulaire -->

@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="brand-name">
-                    Comme J'aime
+                    
                 </div>
 
             </a>

@@ -104,6 +104,7 @@ CREATE TABLE achat_regime (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     regime_id INT,
+    type_regime ENUM ('perte','prise'),
     prix_paye DECIMAL(10,2),
     date_achat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id),
@@ -122,17 +123,24 @@ CREATE TABLE is_admin (
     id_user INT,
     FOREIGN KEY (id_user) REFERENCES users(id)
 );
-INSERT INTO is_admin (id_user) VALUES
-(5); -- Rabe est admin
-INSERT INTO genres (nom) VALUES
-('Homme'),
-('Femme');
+
+CREATE TABLE IF NOT EXISTS demandes_code (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    code_id INT,
+    status INT DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (code_id) REFERENCES codes(id)
+);
 
 INSERT INTO objectifs (nom,description) VALUES
 ('Perte de poids','Réduire le poids corporel'),
 ('Prise de poids','Augmenter le poids corporel'),
 ('IMC idéal','Atteindre un IMC normal');
 
+INSERT INTO genres (nom) VALUES
+('Homme'),
+('Femme');
 /* Password User = 1234 */
 INSERT INTO users (
     nom,
@@ -183,6 +191,8 @@ INSERT INTO users (
     30000
 )
 ;
+INSERT INTO is_admin (id_user) VALUES
+(5); -- Rabe est admin
 
 INSERT INTO regimes (
     nom,
@@ -340,3 +350,40 @@ insert into imc_details (intervalle_min, intervalle_max, categorie) values
 (30, 34.9, 'Obésité modérée'),
 (35, 39.9, 'Obésité sévère'),
 (40, 100, 'Obésité morbide');
+
+INSERT INTO user_health (
+    user_id,
+    taille,
+    poids,
+    imc
+) VALUES
+(
+    1,
+    1.70,
+    65.00,
+    ROUND(65 / (1.70 * 1.70), 2)
+),
+(
+    2,
+    1.80,
+    85.00,
+    ROUND(85 / (1.80 * 1.80), 2)
+),
+(
+    3,
+    1.65,
+    55.00,
+    ROUND(55 / (1.65 * 1.65), 2)
+),
+(
+    4,
+    1.75,
+    78.00,
+    ROUND(78 / (1.75 * 1.75), 2)
+),
+(
+    5,
+    1.60,
+    50.00,
+    ROUND(50 / (1.60 * 1.60), 2)
+);

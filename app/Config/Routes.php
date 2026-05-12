@@ -51,6 +51,11 @@ $routes->post(
 
 /* Achat régime */
 $routes->post(
+    '/confirmer-achat',
+    'AchatRegimeController::confirmerAchat'
+);
+
+$routes->post(
     '/acheter',
     'AchatRegimeController::acheter'
 );
