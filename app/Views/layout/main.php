@@ -6,7 +6,8 @@
 
     <title><?= $this->renderSection('title') ?></title>
 
-    <link rel="stylesheet" href="<?= base_url('/style/layout-main.css') ?>">
+    <!-- Stylesheet - CSS Moderne (SCSS compilé) -->
+    <link rel="stylesheet" href="<?= base_url('/style/main.css') ?>">
 </head>
 
 <body>
@@ -50,7 +51,8 @@
                 Accueil
             </a>
 
-            <!-- Programmes -->
+            <?php if(!session()->get("isAdmin")): ?>
+<!-- Programmes -->
             <a href="<?= base_url('/programme1') ?>"
                class="nav-item <?= (uri_string() == 'programme1') ? 'active' : '' ?>">
 
@@ -65,8 +67,10 @@
 
                 Programmes de regimes
             </a>
+<?php endif; ?>
 
-            <!-- Code -->
+            <?php if(!session()->get("isAdmin")): ?>
+<!-- Code -->
             <a href="<?= base_url('code/form') ?>"
                class="nav-item <?= (uri_string() == 'code/form') ? 'active' : '' ?>">
 
@@ -81,7 +85,20 @@
 
                 Code
             </a>
+<?php endif; ?>
 
+            <?php if(!session()->get("isAdmin")): ?>
+<!-- Mes Achats -->
+            <a href="<?= base_url('mes-regimes') ?>"
+               class="nav-item <?= (uri_string() == 'mes-regimes') ? 'active' : '' ?>">
+                <svg viewBox="0 0 24 24">
+                    <rect width="20" height="14" x="2" y="5" rx="2" ry="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+                Mes Achats
+            </a>
+            <?php endif; ?>
+            
             <a href="<?= base_url('/activite') ?>"
                class="nav-item <?= (uri_string() == 'activite') ? 'active' : '' ?>">
 
@@ -96,8 +113,55 @@
 
                 Activite 
             </a>
+            <a href="<?= base_url('/regimes') ?>"
+               class="nav-item <?= (uri_string() == 'regimes') ? 'active' : '' ?>">
 
-            <!-- Gold -->
+                <svg viewBox="0 0 24 24">
+                    <line x1="8" y1="6" x2="21" y2="6"/>
+                    <line x1="8" y1="12" x2="21" y2="12"/>
+                    <line x1="8" y1="18" x2="21" y2="18"/>
+                    <line x1="3" y1="6" x2="3.01" y2="6"/>
+                    <line x1="3" y1="12" x2="3.01" y2="12"/>
+                    <line x1="3" y1="18" x2="3.01" y2="18"/>
+                </svg>
+
+                Nos regimes 
+            </a>
+
+            <?php if(session()->get('isAdmin')): ?>
+            <!-- Dashboard Admin -->
+            <a href="<?= base_url('admin/dashboard') ?>"
+               class="nav-item <?= (uri_string() == 'admin/dashboard') ? 'active' : '' ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Tableau de bord
+            </a>
+
+            <!-- Validation Codes (Admin Only) -->
+            <a href="<?= base_url('codes/validation') ?>"
+               class="nav-item <?= (uri_string() == 'codes/validation') ? 'active' : '' ?>">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Validation Codes
+            </a>
+            <a href="<?= base_url('codes/create') ?>"
+               class="nav-item <?= (uri_string() == 'codes/create') ? 'active' : '' ?>">
+                <svg viewBox="0 0 24 24">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Créer un Code
+            </a>
+            <?php endif; ?>
+
+
+            <?php if(!session()->get("isAdmin")): ?>
+<!-- Gold -->
             <a href="<?= base_url('gold/form') ?>"
                class="nav-item <?= (uri_string() == 'gold/form') ? 'active' : '' ?>">
 
@@ -116,6 +180,7 @@
 
                 Gold
             </a>
+<?php endif; ?>
 
         </div>
         <!-- End Navigation -->
@@ -127,11 +192,17 @@
                 <?php $user = session()->get('user'); ?>
                 <?php if(isset($user)){ ?>
                 
-                <!-- Solde -->
+                <?php if(!session()->get('isAdmin')): ?>
+                <?php if(!session()->get("isAdmin")): ?>
+<?php if(!session()->get("isAdmin")): ?>
+<!-- Solde -->
                 <div class="nav-item">
                     Solde :
                     <?= $user['solde'] ?> Ar
                 </div>
+<?php endif; ?>
+<?php endif; ?>
+                <?php endif; ?>
                 
                 <!-- User -->
                 <a href="<?= base_url('/profile') ?>" class="user-row">

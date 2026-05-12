@@ -95,14 +95,14 @@ Activités
         <div class="page-title">
             Liste des Activités
         </div>
-
+<?php if(session()->get('isAdmin')): ?>
         <a
             href="<?= base_url('activite/form') ?>"
             class="btn-add"
         >
             Ajouter une activité
         </a>
-
+ <?php endif; ?>
     </div>
 
     <?php if(!empty($activites)): ?>
@@ -125,10 +125,13 @@ Activités
                         Calories brûlées :
                         <?= esc($activite['calories_brulees']) ?>
                     </div>
+                    <?php if(session()->get('isAdmin')): ?>
                     <a href="<?= base_url('activite/edit/' . $activite['id']) ?>">
                         Modifier
                     </a>
                     <a href="<?= base_url('activite/delete/' . $activite['id']) ?>" class="btn-delete">Supprimer</a>
+                    <?php endif; ?>
+
                 </div>
 
             <?php endforeach; ?>

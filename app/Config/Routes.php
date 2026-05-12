@@ -46,37 +46,8 @@ $routes->post(
     'GoldController::activer'
 );
 
-/* CRUD activite */
 
-$routes->get(
-    '/activite',
-    'ActiviteController::index'
-);
 
-$routes->get(
-    '/activite/form',
-    'ActiviteController::form'
-);
-
-$routes->post(
-    '/activite/save',
-    'ActiviteController::save'
-);
-
-$routes->get(
-    '/activite/edit/(:num)',
-    'ActiviteController::edit/$1'
-);
-
-$routes->post(
-    '/activite/update/(:num)',
-    'ActiviteController::update/$1'
-);
-
-$routes->get(
-    '/activite/delete/(:num)',
-    'ActiviteController::delete/$1'
-);
 
 /* Achat régime */
 $routes->post(
@@ -89,11 +60,47 @@ $routes->get(
     'ProfileController::index'
 );
 
-// CRUD régimes
-$routes->get('regimes/create', 'RegimeController::create');
-$routes->post('regimes/store', 'RegimeController::store');
-// Optionnel: routes index etc.
+
+
+
+// Mes achats (Utilisateur)
+$routes->get('mes-regimes', 'AchatRegimeController::mesRegimes');
+$routes->get('mes-regimes/export/(:num)', 'AchatRegimeController::exportPdf/$1');
+
+// Lecture seule pour tout le monde ou les utilisateurs connectés
+$routes->get('/activite', 'ActiviteController::index');
 $routes->get('regimes', 'RegimeController::index');
-$routes->get('regimes/edit/(:num)', 'RegimeController::edit/$1');
-$routes->post('regimes/update/(:num)', 'RegimeController::update/$1');
-$routes->get('regimes/delete/(:num)', 'RegimeController::delete/$1');
+
+// Admin Routes (Modification, Ajout & Suppression Activites & Regimes)
+$routes->group('', ['filter' => 'admin'], static function ($routes) {
+    /* CRUD activite limités aux admins*/
+    $routes->get('/activite/form', 'ActiviteController::form');
+    $routes->post('/activite/save', 'ActiviteController::save');
+    $routes->get('/activite/edit/(:num)', 'ActiviteController::edit/$1');
+    $routes->post('/activite/update/(:num)', 'ActiviteController::update/$1');
+    $routes->get('/activite/delete/(:num)', 'ActiviteController::delete/$1');
+
+    
+
+    $routes->get('codes/create', 'CodeController::create');
+    $routes->post('codes/store', 'CodeController::store');
+    
+    $routes->get('codes/validation', 'CodeController::validation');
+    $routes->post('codes/valider/(:num)', 'CodeController::valider/$1');
+    $routes->post('codes/refuser/(:num)', 'CodeController::refuser/$1');
+
+    // CRUD régimes limités aux admins
+    $routes->get('regimes/create', 'RegimeController::create');
+    $routes->post('regimes/store', 'RegimeController::store');
+    $routes->get('regimes/edit/(:num)', 'RegimeController::edit/$1');
+    $routes->post('regimes/update/(:num)', 'RegimeController::update/$1');
+    $routes->get('regimes/delete/(:num)', 'RegimeController::delete/$1');
+    $routes->get('regimes/ajouterActivite/(:num)', 'RegimeController::ajouterActivite/$1');
+    $routes->post('regimes/ajouterActivite/(:num)', 'RegimeController::storeActivite/$1');
+});
+
+// admin
+$routes->get('/admin/dashboard', 'AdminDashboardController::index', ['filter' => 'admin']);
+$routes->get('login','AdminController::login');
+$routes->post('/admin/authenticate','AdminController::authenticate');
+$routes->get('/admin/dashbord','AdminController::index');
