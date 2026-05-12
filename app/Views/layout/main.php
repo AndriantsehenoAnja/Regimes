@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="brand-name">
-                    Gomme Ton Ventre
+                    
                 </div>
 
             </a>

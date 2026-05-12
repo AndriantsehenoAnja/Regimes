@@ -340,3 +340,40 @@ insert into imc_details (intervalle_min, intervalle_max, categorie) values
 (30, 34.9, 'Obésité modérée'),
 (35, 39.9, 'Obésité sévère'),
 (40, 100, 'Obésité morbide');
+
+INSERT INTO user_health (
+    user_id,
+    taille,
+    poids,
+    imc
+) VALUES
+(
+    1,
+    1.70,
+    65.00,
+    ROUND(65 / (1.70 * 1.70), 2)
+),
+(
+    2,
+    1.80,
+    85.00,
+    ROUND(85 / (1.80 * 1.80), 2)
+),
+(
+    3,
+    1.65,
+    55.00,
+    ROUND(55 / (1.65 * 1.65), 2)
+),
+(
+    4,
+    1.75,
+    78.00,
+    ROUND(78 / (1.75 * 1.75), 2)
+),
+(
+    5,
+    1.60,
+    50.00,
+    ROUND(50 / (1.60 * 1.60), 2)
+);

@@ -705,7 +705,7 @@ button.loading::after, .button.loading::after, input[type='submit'].loading::aft
   align-items: center;
   justify-content: center;
   gap: 16px;
-  min-width: 200px;
+  min-width: 40px;
 }
 
 @media (max-width: 768px) {
