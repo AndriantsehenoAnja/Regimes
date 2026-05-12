@@ -117,6 +117,13 @@ CREATE TABLE imc_details(
     categorie VARCHAR(50)
 );
 
+CREATE TABLE is_admin (
+    id_admin SERIAL PRIMARY KEY,
+    id_user INT,
+    FOREIGN KEY (id_user) REFERENCES users(id)
+);
+INSERT INTO is_admin (id_user) VALUES
+(5); -- Rabe est admin
 INSERT INTO genres (nom) VALUES
 ('Homme'),
 ('Femme');
