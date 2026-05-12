@@ -143,6 +143,7 @@ class AchatRegimeController extends BaseController
             $achatModel->insert([
                 'user_id' => $userId,
                 'regime_id' => $regimeId,
+                'type_regime' => $regime['type_regime'],
                 'prix_paye' => $prix
             ]);
 

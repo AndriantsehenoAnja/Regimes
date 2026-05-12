@@ -15,6 +15,7 @@ class AchatRegimeModel extends Model
     protected $allowedFields = [
         'user_id',
         'regime_id',
+        'type_regime',
         'prix_paye'
     ];
 
@@ -38,6 +39,14 @@ class AchatRegimeModel extends Model
             'rules' => 'required|decimal',
             'errors' => [
                 'required' => 'Prix obligatoire'
+            ]
+        ],
+
+        'type_regime' => [
+            'rules' => 'required|in_list[perte,prise]',
+            'errors' => [
+                'required' => 'Type de régime obligatoire',
+                'in_list' => 'Type de régime invalide'
             ]
         ]
     ];

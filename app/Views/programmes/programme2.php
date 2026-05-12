@@ -198,7 +198,7 @@ Régimes Suggérés
 
                         <div class="regime-info">
                             <span class="info-label">
-                                Variante finale (kg/j)
+                                Variante finale (kg)
                             </span>
 
                             <span class="info-value">

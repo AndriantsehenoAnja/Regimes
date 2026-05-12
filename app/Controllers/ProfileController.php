@@ -33,7 +33,6 @@ class ProfileController extends BaseController
                 regimes.nom as regime_nom,
                 regimes.description,
                 regimes.duree,
-                regimes.type_regime
             ')
             ->join(
                 'regimes',
