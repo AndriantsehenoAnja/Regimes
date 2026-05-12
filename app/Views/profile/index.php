@@ -119,7 +119,12 @@ Mon Profil
         <div class="profile-name">
             <?= esc($user['nom']) ?>
         </div>
-
+        <div>
+            <?= $user_info['taille'] ?>
+        </div>
+        <div>
+            <?=  $user_info['poids'] ?>
+        </div>
         <div class="profile-info">
             <?= esc($user['email']) ?>
         </div>

@@ -217,6 +217,8 @@ class RegimeController extends BaseController
         $objectif = (int)$objectifData;
         $valeur = $this->request->getPost('valeur');
 
+        $session->set("valeur", $valeur);
+        $session->set("objectif", $objectif);
         $regimeModel = new \App\Models\RegimeModel();
 
         if ($objectif === 3 && !$session->get("user")) {

@@ -158,6 +158,10 @@ Régimes Suggérés
         Vos Régimes Suggérés
     </h1>
 
+    <div class="mb-4 text-center">
+        <a href="javascript:history.back()" class="btn btn-secondary" style="background:#7f8c8d; color:white; padding:8px 16px; border-radius:4px; text-decoration:none;">&larr; Précédent</a>
+    </div>
+
     <!-- SUCCESS -->
     <?php if(session()->getFlashdata('success')): ?>
 
@@ -292,7 +296,7 @@ Régimes Suggérés
                             <?php else: ?>
                             
                                 <form
-                                    action="<?= base_url('/acheter') ?>"
+                                    action="<?= base_url('/confirmer-achat') ?>"
                                     method="post"
                                 >
                             
@@ -318,20 +322,9 @@ Régimes Suggérés
                             
                                     <button
                                         type="submit"
-                                        class="btn-choose <?= !$soldeSuffisant ? 'btn-danger' : '' ?>"
-                                        <?= !$soldeSuffisant ? 'disabled' : '' ?>
+                                        class="btn-choose"
                                     >
-                            
-                                        <?php if ($soldeSuffisant): ?>
-                                        
-                                            Acheter ce programme
-                                        
-                                        <?php else: ?>
-                                        
-                                            Solde insuffisant
-                                        
-                                        <?php endif; ?>
-                                        
+                                        Voir les détails & Continuer
                                     </button>
                                         
                                 </form>

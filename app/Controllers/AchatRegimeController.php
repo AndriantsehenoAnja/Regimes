@@ -8,6 +8,43 @@ use App\Models\UserModel;
 
 class AchatRegimeController extends BaseController
 {
+    public function confirmerAchat()
+    {
+        $session = session();
+        if (!$session->has('user')) {
+            return redirect()->to('/login')->with('error', 'Veuillez vous connecter');
+        }
+
+        $regimeId = $this->request->getPost('regime_id');
+        $multiplicateur = $this->request->getPost('multiplicateur');
+        $prixTotal = $this->request->getPost('prix');
+
+        if (!$regimeId || !$prixTotal) {
+            return redirect()->to('/suggerer')->with('error', 'Informations invalides');
+        }
+
+        $regimeModel = new RegimeModel();
+        $regime = $regimeModel->find($regimeId);
+        if (!$regime) {
+            return redirect()->to('/suggerer')->with('error', 'Régime introuvable');
+        }
+
+        // Activites associées
+        $db = \Config\Database::connect();
+        $builderAct = $db->table('regime_activite');
+        $builderAct->select('activites.nom');
+        $builderAct->join('activites', 'activites.id = regime_activite.activite_id');
+        $builderAct->where('regime_activite.regime_id', $regimeId);
+        $activites = $builderAct->get()->getResultArray();
+
+        return view('regime/confirmation_achat', [
+            'regime' => $regime,
+            'activites' => $activites,
+            'multiplicateur' => $multiplicateur,
+            'prixTotal' => $prixTotal
+        ]);
+    }
+
     public function acheter()
     {
         $session = session();
