@@ -19,11 +19,11 @@ class GoldController extends BaseController
     {
         $session = session();
         $user = $session->get('user');
-        $userId = $user['id'] ;
 
-        if (!$userId) {
+        if (!$user) {
             return redirect()->to('/login');
         }
+        $userId = $user['id'] ;
 
         $userModel = new UserModel();
 
@@ -64,20 +64,19 @@ class GoldController extends BaseController
 
             // Nouveau solde
             $nouveauSolde =
-                $user['solde'] - $this->goldPrice;
-             $session->set('user', $user);
+            $user['solde'] - $this->goldPrice;
             // Update user
             $userModel->update($userId, [
                 'solde' => $nouveauSolde,
                 'is_gold' => 1
             ]);
-
+            $user['solde'] = $nouveauSolde;
             if ($db->transStatus() === false) {
                 throw new \Exception(
                     'Erreur transaction'
                 );
             }
-
+            $session->set('user', $user);
             $db->transCommit();
 
             // Update session
@@ -85,7 +84,8 @@ class GoldController extends BaseController
                 'is_gold' => 1,
                 'solde' => $nouveauSolde
             ]);
-        
+            $session->set('user', $user);
+
             return redirect()->back()
                 ->with(
                     'success',
