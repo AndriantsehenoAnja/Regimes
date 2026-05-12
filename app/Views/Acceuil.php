@@ -1,5 +1,5 @@
 <?php $this->extend('layout/main') ?>
-<?php $this->section('title'); ?>Accueil - Comme J'aime<?php $this->endSection(); ?>
+<?php $this->section('title'); ?>Accueil - Gomme Ton Ventre<?php $this->endSection(); ?>
 <?php $this->section('content') ?>
 
 <link rel="stylesheet" href="<?= base_url('style/acceuil.css') ?>">
@@ -8,7 +8,7 @@
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="hero-title">
-            Bienvenue sur Comme J'aime
+            Bienvenue sur Gomme Ton Ventre
         </div>
         <div class="hero-subtitle">
             Votre compagnon bien-être pour une vie plus saine et épanouie

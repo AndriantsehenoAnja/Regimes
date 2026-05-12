@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="brand-name">
-                    Comme J'aime
+                    Gomme Ton Ventre
                 </div>
 
             </a>
